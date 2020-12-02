@@ -1,0 +1,18 @@
+﻿生成报告
+	浏览测试报告数据命令
+	$ allure serve <directory-with-results>
+	
+	要从现有的Allure结果生成报告，可以使用以下命令：
+	$ allure generate <directory-with-results>
+
+	该报告将生成到allure-report文件夹。您可以使用-o标志更改目标文件夹：
+	$ allure generate <directory-with-results> -o <directory-with-report>
+
+Allure特性
+	[Test(Description = "XXX")]              : Description 为用例描述内容
+	[AllureTag("Regression")]                : 添加用例的 Tag ，允许传递多个 Tag
+	[AllureSeverity(SeverityLevel.critical)] : 用例优先级
+	[AllureIssue("name", "url")]             : 用例链接
+	[AllureOwner("User")]                    : 拥有者
+    [AllureSuite("PassedSuite")]             : 套件所属
+    [AllureSubSuite("NoAssert")]             : 子套件所属
