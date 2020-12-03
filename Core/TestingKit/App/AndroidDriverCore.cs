@@ -87,7 +87,7 @@ namespace Core.TestingKit.App.Android
 
                 LogServe.Error($"安卓设备驱动核心启动失败: {Err.Message}");
 
-                throw new AndroidDriverStartException(Err.Message);
+                throw new AndroidDriverException(Err.Message);
 
             }
         }

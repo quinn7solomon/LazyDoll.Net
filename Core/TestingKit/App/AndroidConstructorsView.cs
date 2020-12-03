@@ -6,18 +6,15 @@
      \  |___    //  __'  \  //  \__    /   /   (| (___\ ||(: (____/ //  \  |___  \  |___    _____ |.  \    \. | // ___)_     |.  |     
     ( \_|:  \  /   /  \\  \(:   / "\  /   /    |:       :) \        /  ( \_|:  \( \_|:  \  ))_  ")|    \    \ |(:      "|    \:  |     
      \_______)(___/    \___)\_______)|___/     (________/   \"_____/    \_______)\_______)(_____(  \___|\____\) \_______)     \__|     
-                                                                                                                                   
 
-    Copyright (c) 2020, @ quinn.7@foxmail.com, All rights reserved
 
-    GitPath      : https://github.com/quinn7solomon/LazyDoll.Net
-    FrameName    : LazyDoll.Net
-    CreatorName  : Quinn7k
-    CreationTime : 2020.11.19
+    Copyright © 2020 - 2020 Quinn7k.All Rights Reserved.
 
-    Module Responsibility Description : NA
+    GitHub.Url   : https://github.com/quinn7solomon/LazyDoll.Net
+    CreatorMail  : quinn.7@foxmail.com
 
  */
+
 
 using System;
 using System.Drawing;
@@ -46,14 +43,12 @@ namespace Core.TestingKit.App.Android
         /// <summary>
         /// 实例化屏幕组件实现类
         /// </summary>
-        #region
         public AndroidConstructorsView(AndroidDriverCore androidDriverCore)
         {
 
             AndroidDriver = androidDriverCore.StartUniqueDriver();
 
         }
-        #endregion
 
 
         /// <summary>
@@ -61,10 +56,8 @@ namespace Core.TestingKit.App.Android
         /// </summary>
         /// <param name="sleepTime"> 后台休眠时长 </param>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void BackgroundApp(int sleepTime, bool logOutput = true)
         {
-
             try
             {
                 if (logOutput) LogServe.Info($"应用程序执行后台休眠 => {sleepTime}");
@@ -75,37 +68,32 @@ namespace Core.TestingKit.App.Android
                 if (logOutput) LogServe.Info($"应用程序结束后台休眠");
             }
 
-            catch (Exception Err)
+            catch (Exception err)
             {
-                LogServe.Error($"应用程序执行后台休眠异常 : { Err.Message }"); throw;
+                LogServe.Error($"Error:: 应用程序执行后台休眠异常:: { err.Message }"); throw;
             }
-
         }
-        #endregion
 
 
         /// <summary>
         /// 隐藏软键盘
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void HideKeyboard(bool logOutput = true)
         {
-
             try
             {
                 /* Thread.Sleep(1000); */
                 AndroidDriver.HideKeyboard();
+
                 if (logOutput) LogServe.Info($"隐藏软键盘");
             }
 
-            catch (Exception Err)
+            catch (Exception err)
             {
-                LogServe.Error($"隐藏软键盘异常 : { Err.Message }"); throw;
+                LogServe.Error($"Error:: 隐藏软键盘异常:: { err.Message }"); throw;
             }
-
         }
-        #endregion
 
 
         /// <summary>

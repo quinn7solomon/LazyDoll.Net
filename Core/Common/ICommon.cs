@@ -6,16 +6,12 @@
      \  |___    //  __'  \  //  \__    /   /   (| (___\ ||(: (____/ //  \  |___  \  |___    _____ |.  \    \. | // ___)_     |.  |     
     ( \_|:  \  /   /  \\  \(:   / "\  /   /    |:       :) \        /  ( \_|:  \( \_|:  \  ))_  ")|    \    \ |(:      "|    \:  |     
      \_______)(___/    \___)\_______)|___/     (________/   \"_____/    \_______)\_______)(_____(  \___|\____\) \_______)     \__|     
-                                                                                                                                   
 
-    Copyright (c) 2020, @ quinn.7@foxmail.com, All rights reserved
 
-    GitPath      : https://github.com/quinn7solomon/LazyDoll.Net
-    FrameName    : LazyDoll.Net
-    CreatorName  : Quinn7k
-    CreationTime : 2020.11.19
+    Copyright © 2020 - 2020 Quinn7k.All Rights Reserved.
 
-    Module Responsibility Description : NA
+    GitHub.Url   : https://github.com/quinn7solomon/LazyDoll.Net
+    CreatorMail  : quinn.7@foxmail.com
 
  */
 
@@ -23,21 +19,24 @@
 namespace Core.Common.ICommon
 {
 
-    /// <summary>
-    /// 日志接口定义
-    /// </summary>
+    /// <summary> 日志接口定义 </summary>
     interface ILogServe
     {
 
-        void Debug(string message);  // 输出 DEBUG 日志
+        /// <summary> 输出 DEBUG 日志 </summary>
+        void Debug(string message);
 
-        void Info(string message);  // 输出 INFO 日志
+        /// <summary> 输出 INFO 日志 </summary>
+        void Info(string message);
 
-        void Error(string message);  // 输出 ERROR 日志
+        /// <summary> 输出 ERROR 日志 </summary>
+        void Error(string message);
 
-        void Warn(string message);  // 输出 WARN 日志
+        /// <summary> 输出 WARN 日志 </summary>
+        void Warn(string message);
 
-        void Fatal(string message);  // 输出 FATAL 日志
+        /// <summary> 输出 FATAL 日志 </summary>
+        void Fatal(string message);
 
     }
 

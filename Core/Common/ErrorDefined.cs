@@ -6,18 +6,15 @@
      \  |___    //  __'  \  //  \__    /   /   (| (___\ ||(: (____/ //  \  |___  \  |___    _____ |.  \    \. | // ___)_     |.  |     
     ( \_|:  \  /   /  \\  \(:   / "\  /   /    |:       :) \        /  ( \_|:  \( \_|:  \  ))_  ")|    \    \ |(:      "|    \:  |     
      \_______)(___/    \___)\_______)|___/     (________/   \"_____/    \_______)\_______)(_____(  \___|\____\) \_______)     \__|     
-                                                                                                                                   
 
-    Copyright (c) 2020, @ quinn.7@foxmail.com, All rights reserved
 
-    GitPath      : https://github.com/quinn7solomon/LazyDoll.Net
-    FrameName    : LazyDoll.Net
-    CreatorName  : Quinn7k
-    CreationTime : 2020.11.19
+    Copyright © 2020 - 2020 Quinn7k.All Rights Reserved.
 
-    Module Responsibility Description : NA
+    GitHub.Url   : https://github.com/quinn7solomon/LazyDoll.Net
+    CreatorMail  : quinn.7@foxmail.com
 
  */
+
 
 using System;
 
@@ -25,27 +22,30 @@ using System;
 namespace Core.Common.ErrorDefined
 {
 
-    /// <summary>
-    /// 日志服务输出异常
-    /// </summary>
-    #region
     public class LogServeOutputException : ApplicationException
     {
+
+        /// <summary> 日志服务输出异常 </summary>
         public LogServeOutputException(string message) : base(message) { }
 
     }
-    #endregion
 
 
-    /// <summary>
-    /// 安卓设备驱动核心启动失败
-    /// </summary>
-    #region
-    public class AndroidDriverStartException : ApplicationException
+    public class AndroidDriverException : ApplicationException
     {
-        public AndroidDriverStartException(string message) : base(message) { }
+
+        /// <summary> 安卓设备驱动异常 </summary>
+        public AndroidDriverException(string message) : base(message) { }
 
     }
-    #endregion
+
+
+    public class ElementResolvesToEmptyException : ApplicationException
+    {
+
+        /// <summary> 元素解析为空异常 </summary>
+        public ElementResolvesToEmptyException(string message) : base(message) { }
+
+    }
 
 }

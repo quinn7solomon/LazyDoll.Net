@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using Core.Common.Overall;
 using Core.TestingKit.App;
 using Core.TestingKit.App.Android;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+
 
 namespace Test
 {
@@ -20,6 +19,7 @@ namespace Test
             DriverConfig.AppPath = @"F:\CsharpCode\DollCookbook\AppTesting-TanDu\apk\tandu.apk";
             DriverConfig.AppPackage = "com.ylyread.xs";
             DriverConfig.AppActivity = "com.wxreader.com.activity.SplashActivity";
+            DriverConfig.NoReset = false;
             AndroidDriverCore AndroidDriverCore = new AndroidDriverCore(DriverConfig);
 
             ElementStructure ElementStructure = new ElementStructure(
@@ -32,11 +32,13 @@ namespace Test
 
             AndroidConstructorsApp AndroidConstructorsApp = new AndroidConstructorsApp(AndroidDriverCore);
             AndroidConstructorsModule AndroidConstructorsModule = new AndroidConstructorsModule(AndroidDriverCore, ElementStructure);
-            Console.WriteLine(AndroidConstructorsModule.Text());
-            Console.WriteLine(AndroidConstructorsModule.GetAttribute("text"));
-            Console.WriteLine(AndroidConstructorsModule.GetAttribute("className"));
             Console.WriteLine(AndroidConstructorsModule.IsInPage());
-            Console.WriteLine(AndroidConstructorsModule.IsInPage(1));
+            Console.WriteLine(AndroidConstructorsModule.GetAttributeText());
+            Console.WriteLine(AndroidConstructorsModule.GetAttributeClass());
+            Console.WriteLine(AndroidConstructorsModule.GetAttributeId());
+            Console.WriteLine(AndroidConstructorsModule.Location());
+
+            AndroidConstructorsModule.Tap();
         }
     }
 }
