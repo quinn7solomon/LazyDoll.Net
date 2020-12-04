@@ -6,31 +6,28 @@
      \  |___    //  __'  \  //  \__    /   /   (| (___\ ||(: (____/ //  \  |___  \  |___    _____ |.  \    \. | // ___)_     |.  |     
     ( \_|:  \  /   /  \\  \(:   / "\  /   /    |:       :) \        /  ( \_|:  \( \_|:  \  ))_  ")|    \    \ |(:      "|    \:  |     
      \_______)(___/    \___)\_______)|___/     (________/   \"_____/    \_______)\_______)(_____(  \___|\____\) \_______)     \__|     
-                                                                                                                                   
 
-    Copyright (c) 2020, @ quinn.7@foxmail.com, All rights reserved
 
-    GitPath      : https://github.com/quinn7solomon/LazyDoll.Net
-    FrameName    : LazyDoll.Net
-    CreatorName  : Quinn7k
-    CreationTime : 2020.11.19
+    Copyright © 2020 - 2020 Quinn7k.All Rights Reserved.
 
-    Module Responsibility Description : NA
+    GitHub.Url   : https://github.com/quinn7solomon/LazyDoll.Net
+    CreatorMail  : quinn.7@foxmail.com
 
  */
+
 
 using System;
 using Core.Common.Log;
 using Core.Common.ErrorDefined;
-using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
+using System.Threading;
 
 
 namespace Core.TestingKit.App.Android
 {
 
     /// <summary>
-    /// 安卓驱动器核心类
+    /// 实例化安卓驱动类
     /// </summary>
     public class AndroidDriverCore
     {
@@ -44,13 +41,18 @@ namespace Core.TestingKit.App.Android
         /// <summary> 线程锁 </summary>
         private static readonly object ThreadLock = new object();
 
+        /// <summary> Appium客户端URL </summary>
         private readonly string ClientUrl;
+
+        /// <summary> Appium客户端端口 </summary>
         private readonly string ClientPort;
+
+        /// <summary> 驱动配置对象 </summary>
         private readonly DriverConfig DriverConfig;
 
 
         /// <summary>
-        /// 实例化安卓驱动器核心类
+        /// 实例化安卓驱动类
         /// </summary>
         /// <param name="driverConfig"> DriverConfig 对象 </param>
         /// <param name="clientPort"> 客户端端口值 </param>
@@ -70,26 +72,26 @@ namespace Core.TestingKit.App.Android
         /// <returns></returns>
         public AndroidDriver<AndroidElement> StartUniqueDriver()
         {
-
             try
             {
-
                 lock (ThreadLock)
                 {
-                    return _AndroidDriverEntity ??= new AndroidDriver<AndroidElement>
+                    _AndroidDriverEntity ??= new AndroidDriver<AndroidElement>
                         (new Uri($"http://{ClientUrl}:{ClientPort}/wd/hub"), DriverConfig.AnalysisCapabilities());
-                }
 
+                    Thread.Sleep(1000);
+
+                    return _AndroidDriverEntity;
+                }
             }
 
-            catch (Exception Err)
+            catch (Exception err)
             {
+                LogServe.Error($"Error:: 安卓设备驱动启动失败: {err.Message}");
 
-                LogServe.Error($"安卓设备驱动核心启动失败: {Err.Message}");
-
-                throw new AndroidDriverException(Err.Message);
-
+                throw new AndroidDriverException(err.Message);
             }
         }
+    
     }
 }

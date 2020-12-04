@@ -26,9 +26,9 @@ namespace Core.TestingKit.App.Android
 {
 
     /// <summary>
-    /// 程序组件实现类
+    /// 系统组件实现类
     /// </summary>
-    public class AndroidConstructorsApp
+    public class AndroidConstructorsSystem
     {
 
         /// <summary> 日志服务 </summary>
@@ -39,12 +39,12 @@ namespace Core.TestingKit.App.Android
 
 
         /// <summary>
-        /// 实例化程序组件实现类
+        /// 实例化系统组件实现类
         /// </summary>
-        public AndroidConstructorsApp(AndroidDriverCore androidDriverCore)
+        public AndroidConstructorsSystem(AndroidDriver<AndroidElement> androidDriver)
         {
 
-            AndroidDriver = androidDriverCore.StartUniqueDriver();
+            AndroidDriver = androidDriver;
 
         }
 

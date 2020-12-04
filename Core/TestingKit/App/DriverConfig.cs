@@ -6,18 +6,15 @@
      \  |___    //  __'  \  //  \__    /   /   (| (___\ ||(: (____/ //  \  |___  \  |___    _____ |.  \    \. | // ___)_     |.  |     
     ( \_|:  \  /   /  \\  \(:   / "\  /   /    |:       :) \        /  ( \_|:  \( \_|:  \  ))_  ")|    \    \ |(:      "|    \:  |     
      \_______)(___/    \___)\_______)|___/     (________/   \"_____/    \_______)\_______)(_____(  \___|\____\) \_______)     \__|     
-                                                                                                                                   
 
-    Copyright (c) 2020, @ quinn.7@foxmail.com, All rights reserved
 
-    GitPath      : https://github.com/quinn7solomon/LazyDoll.Net
-    FrameName    : LazyDoll.Net
-    CreatorName  : Quinn7k
-    CreationTime : 2020.11.19
+    Copyright © 2020 - 2020 Quinn7k.All Rights Reserved.
 
-    Module Responsibility Description : NA
+    GitHub.Url   : https://github.com/quinn7solomon/LazyDoll.Net
+    CreatorMail  : quinn.7@foxmail.com
 
  */
+
 
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
@@ -25,6 +22,7 @@ using OpenQA.Selenium.Appium.Enums;
 
 namespace Core.TestingKit.App
 {
+
     /// <summary>
     /// 驱动设备配置对象
     /// </summary>
@@ -68,7 +66,6 @@ namespace Core.TestingKit.App
         /// <returns> AppiumOptions 对象 </returns>
         public AppiumOptions AnalysisCapabilities()
         {
-
             AppiumOptions capabilities = new AppiumOptions();
 
             capabilities.AddAdditionalCapability("appPackage", AppPackage);
@@ -83,7 +80,6 @@ namespace Core.TestingKit.App
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, PlatformVersion);
 
             return capabilities;
-
         }
 
     }

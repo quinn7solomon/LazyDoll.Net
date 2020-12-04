@@ -17,7 +17,7 @@
 
 
 using System;
-using System.Drawing;
+using System.Threading;
 using Core.Common.Log;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
@@ -39,14 +39,23 @@ namespace Core.TestingKit.App.Android
         /// <summary> 安卓驱动 </summary>
         private readonly AndroidDriver<AndroidElement> AndroidDriver;
 
+        /// <summary> 设备屏幕的高度 </summary>
+        int DeviceWindowHeight;
+
+        /// <summary> 设备屏幕的宽度 </summary>
+        int DeviceWindowWidth;
+
 
         /// <summary>
         /// 实例化屏幕组件实现类
         /// </summary>
-        public AndroidConstructorsView(AndroidDriverCore androidDriverCore)
+        public AndroidConstructorsView(AndroidDriver<AndroidElement> androidDriver)
         {
 
-            AndroidDriver = androidDriverCore.StartUniqueDriver();
+            AndroidDriver = androidDriver;
+
+            DeviceWindowHeight = AndroidDriver.Manage().Window.Size.Height;
+            DeviceWindowWidth = AndroidDriver.Manage().Window.Size.Width;
 
         }
 
@@ -97,99 +106,73 @@ namespace Core.TestingKit.App.Android
 
 
         /// <summary>
-        /// 物理键盘 - Home键
+        /// 物理键盘:: Home键
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void PressKeyHome(bool logOutput = true)
         {
-
             BasePressKey(AndroidKeyCode.Keycode_HOME, "Home键", logOutput);
-
         }
-        #endregion
 
 
         /// <summary>
-        /// 物理键盘 - 返回键
+        /// 物理键盘:: 返回键
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void PressKeyBack(bool logOutput = true)
         {
-
             BasePressKey(AndroidKeyCode.Keycode_BACK, "返回键", logOutput);
-
         }
-        #endregion
 
 
         /// <summary>
-        /// 物理键盘 - 电源键
+        /// 物理键盘:: 电源键
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void PressKeySupply(bool logOutput = true)
         {
-
             BasePressKey(AndroidKeyCode.Keycode_POWER, "电源键", logOutput);
-
         }
-        #endregion
 
 
         /// <summary>
-        /// 物理键盘 - 音量增加键
+        /// 物理键盘:: 音量增加键
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void PressKeyVoiceUp(bool logOutput = true)
         {
-
             BasePressKey(AndroidKeyCode.Keycode_VOLUME_UP, "音量增加键", logOutput);
-
         }
-        #endregion
 
 
         /// <summary>
-        /// 物理键盘 - 音量减少键
+        /// 物理键盘:: 音量减少键
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void PressKeyVoiceDown(bool logOutput = true)
         {
-
             BasePressKey(AndroidKeyCode.Keycode_VOLUME_DOWN, "音量减少键", logOutput);
-
         }
-        #endregion
 
 
         /// <summary>
-        /// 物理键盘 - 音量静音键
+        /// 物理键盘:: 音量静音键
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void PressKeyVoiceMute(bool logOutput = true)
         {
-
             BasePressKey(AndroidKeyCode.Keycode_VOLUME_MUTE, "音量静音键", logOutput);
-
         }
-        #endregion
 
 
         /// <summary>
         /// 点击物理按键事件封装
         /// </summary>
-        /// <param name="KeyCode"></param>
+        /// <param name="KeyCode"> AndroidKeyCode常量 </param>
         /// <param name="KeyName"> 是否打印执行日志 </param>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         private void BasePressKey(int KeyCode, string KeyName, bool logOutput)
         {
-
             try
             {
                 /* Thread.Sleep(1000); */
@@ -197,69 +180,51 @@ namespace Core.TestingKit.App.Android
                 if (logOutput) LogServe.Info($"点击物理按键 => {KeyName}");
             }
 
-            catch (Exception Err)
+            catch (Exception err)
             {
-                LogServe.Error($"点击物理按键异常 : { Err.Message }"); throw;
+                LogServe.Error($"Error:: 点击物理按键异常: { err.Message }"); throw;
             }
-
         }
-        #endregion
 
 
         /// <summary>
         /// 滑动屏幕 - 上
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void SwipeUp(bool logOutput = true)
         {
-
             BaseSwipe("上", logOutput);
-
         }
-        #endregion
 
 
         /// <summary>
         /// 滑动屏幕 - 下
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void SwipeDown(bool logOutput = true)
         {
-
             BaseSwipe("下", logOutput);
-
         }
-        #endregion
 
 
         /// <summary>
         /// 滑动屏幕 - 左
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void SwipeLeft(bool logOutput = true)
         {
-
             BaseSwipe("左", logOutput);
-
         }
-        #endregion
 
 
         /// <summary>
         /// 滑动屏幕 - 右
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void SwipeRight(bool logOutput = true)
         {
-
             BaseSwipe("右", logOutput);
-
         }
-        #endregion
 
 
         /// <summary>
@@ -267,95 +232,79 @@ namespace Core.TestingKit.App.Android
         /// </summary>
         /// <param name="direction"> 滑动方向 </param>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         private void BaseSwipe(string direction, bool logOutput)
         {
-
             try
             {
-                /* Thread.Sleep(1000); */
-
-                TouchAction action = new TouchAction(AndroidDriver);
-                Size size = AndroidDriver.Manage().Window.Size;
-                int height = size.Height;
-                int width = size.Width;
+                TouchAction TouchAction = new TouchAction(AndroidDriver);
 
                 switch (direction)
                 {
                     case "上":
-                        action.LongPress(width / 2, height / 2).MoveTo(width / 2, height - 10).Release().Perform();
+                        TouchAction.LongPress(DeviceWindowWidth / 2, DeviceWindowHeight / 2)
+                            .MoveTo(DeviceWindowWidth / 2, DeviceWindowHeight - 50).Release().Perform();
                         break;
                     case "下":
-                        action.LongPress(width / 2, height / 2).MoveTo(width / 2, 10).Release().Perform();
+                        TouchAction.LongPress(DeviceWindowWidth / 2, DeviceWindowHeight / 2)
+                            .MoveTo(DeviceWindowWidth / 2, 50).Release().Perform();
                         break;
                     case "左":
-                        action.LongPress(50, height / 2).MoveTo(width - 50, height / 2).Release().Perform();
+                        TouchAction.LongPress(50, DeviceWindowHeight / 2)
+                            .MoveTo(DeviceWindowWidth - 50, DeviceWindowHeight / 2).Release().Perform();
                         break;
                     case "右":
-                        action.LongPress(width - 50, height / 2).MoveTo(50, height / 2).Release().Perform();
+                        TouchAction.LongPress(DeviceWindowWidth - 50, DeviceWindowHeight / 2)
+                            .MoveTo(50, DeviceWindowHeight / 2).Release().Perform();
                         break;
                 }
+                Thread.Sleep(500);
 
                 if (logOutput) LogServe.Info($"滑动屏幕 => {direction}");
-
-                /* Thread.Sleep(1000); */
             }
 
-            catch (Exception Err)
+            catch (Exception err)
             {
-                LogServe.Error($"滑动屏幕异常 : { Err.Message }"); throw;
+                LogServe.Error($"Error:: 滑动屏幕异常: { err.Message }"); throw;
             }
-
         }
-        #endregion
 
 
         /// <summary>
         /// 锁定屏幕
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void Lock(bool logOutput = true)
         {
-
             try
             {
                 AndroidDriver.Lock();
-
                 if (logOutput) LogServe.Info("锁定屏幕");
             }
 
-            catch (Exception Err)
+            catch (Exception err)
             {
-                LogServe.Error($"锁定屏幕异常 : { Err.Message }"); throw;
+                LogServe.Error($"Error:: 锁定屏幕异常: { err.Message }"); throw;
             }
-
         }
-        #endregion
 
 
         /// <summary>
         /// 解锁屏幕
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void Unlock(bool logOutput = true)
         {
-
             try
             {
                 AndroidDriver.Unlock();
-
                 if (logOutput) LogServe.Info("解锁屏幕");
             }
 
-            catch (Exception Err)
+            catch (Exception err)
             {
-                LogServe.Error($"解锁屏幕异常 : { Err.Message }"); throw;
+                LogServe.Error($"Error:: 解锁屏幕异常: { err.Message }"); throw;
             }
-
         }
-        #endregion
 
 
         /// <summary>
@@ -363,35 +312,30 @@ namespace Core.TestingKit.App.Android
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
         /// <returns> bool </returns>
-        #region
         public bool IsLocked(bool logOutput = true)
         {
-
             try
             {
                 bool screenType = AndroidDriver.IsLocked();
+
                 if (logOutput) LogServe.Info($"判断当前屏幕是否已经被锁定 => {screenType}");
                 return screenType;
             }
 
-            catch (Exception Err)
+            catch (Exception err)
             {
-                LogServe.Error($"判断当前屏幕是否已经被锁定异常 : { Err.Message }"); throw;
+                LogServe.Error($"Error:: 判断当前屏幕是否已经被锁定异常: { err.Message }"); throw;
             }
-
         }
-        #endregion
 
 
         /// <summary>
         /// 当前屏幕截图
         /// </summary>
-        /// <returns> Screenshot对象 </returns>
+        /// <returns> Screenshot 对象 </returns>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public Screenshot Screenshot(bool logOutput = true)
         {
-
             try
             {
                 Screenshot screenshot = AndroidDriver.GetScreenshot();
@@ -401,23 +345,19 @@ namespace Core.TestingKit.App.Android
                 return screenshot;
             }
 
-            catch (Exception Err)
+            catch (Exception err)
             {
-                LogServe.Error($"当前屏幕截图异常 : { Err.Message }"); throw;
+                LogServe.Error($"Error:: 当前屏幕截图异常: { err.Message }"); throw;
             }
-
         }
-        #endregion
 
 
         /// <summary>
         /// 开始录制屏幕
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void StartRecordingScreen(bool logOutput = true)
         {
-
             try
             {
                 AndroidDriver.StartRecordingScreen(
@@ -431,21 +371,17 @@ namespace Core.TestingKit.App.Android
 
             catch (Exception Err)
             {
-                LogServe.Error($"设备录制屏幕异常 : { Err.Message }"); throw;
+                LogServe.Error($"Error:: 设备录制屏幕异常: { Err.Message }"); throw;
             }
-
         }
-        #endregion
 
 
         /// <summary>
         /// 结束录制屏幕
         /// </summary>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        #region
         public void StopRecordingScreen(bool logOutput = true)
         {
-
             try
             {
                 AndroidDriver.StopRecordingScreen();
@@ -453,13 +389,11 @@ namespace Core.TestingKit.App.Android
                 if (logOutput) LogServe.Info($"设备结束录制屏幕");
             }
 
-            catch (Exception Err)
+            catch (Exception err)
             {
-                LogServe.Error($"设备结束录制屏幕异常 : { Err.Message }"); throw;
+                LogServe.Error($"Error:: 设备结束录制屏幕异常: { err.Message }"); throw;
             }
-
         }
-        #endregion
 
     }
 }

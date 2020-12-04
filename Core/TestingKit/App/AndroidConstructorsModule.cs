@@ -17,20 +17,20 @@
 
 
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using Core.Common.ErrorDefined;
+using System.Collections.Generic;
 using Core.Common.Log;
+using Core.Common.ErrorDefined;
+using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.MultiTouch;
-using OpenQA.Selenium.Support.UI;
 
 
 namespace Core.TestingKit.App.Android
 {
 
     /// <summary>
-    /// 元素组件实现类
+    /// 功能组件实现类
     /// </summary>
     public class AndroidConstructorsModule
     {
@@ -55,14 +55,14 @@ namespace Core.TestingKit.App.Android
 
 
         /// <summary>
-        /// 实例化屏幕组件实现类
+        /// 实例化功能组件实现类
         /// </summary>
-        public AndroidConstructorsModule(AndroidDriverCore androidDriverCore, ElementStructure elementStructure)
+        public AndroidConstructorsModule(AndroidDriver<AndroidElement> androidDriver, Dictionary<string, string> elementDictionary)
         {
 
-            AndroidDriver = androidDriverCore.StartUniqueDriver();
+            AndroidDriver = androidDriver;
             TouchAction = new TouchAction(AndroidDriver);
-            ElementStructure = elementStructure;
+            ElementStructure = new ElementStructure(elementDictionary);
 
         }
 
@@ -495,6 +495,10 @@ namespace Core.TestingKit.App.Android
                 // 空的元素列表容器
                 List<AndroidElement> androidElementList = new List<AndroidElement> { };
 
+                // webDriverWait 显式等待似乎不起作用
+                // 因而通过改变全隐式等待时长来完成这一目的
+                AndroidDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(waitTime);
+
                 // 显示等待委托获取元素
                 WebDriverWait webDriverWait = new WebDriverWait(AndroidDriver, TimeSpan.FromSeconds(waitTime));
                 IReadOnlyCollection<AndroidElement> elementsReadOnly = webDriverWait.Until((d) =>
@@ -539,6 +543,10 @@ namespace Core.TestingKit.App.Android
             {
                 // 空的元素列表容器
                 List<AndroidElement> androidElementList = new List<AndroidElement> { };
+
+                // webDriverWait 显式等待似乎不起作用
+                // 因而通过改变全隐式等待时长来完成这一目的
+                AndroidDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(waitTime);
 
                 // 从锚元素中通过显示等待委托获取元素
                 WebDriverWait webDriverWait = new WebDriverWait(AndroidDriver, TimeSpan.FromSeconds(waitTime));

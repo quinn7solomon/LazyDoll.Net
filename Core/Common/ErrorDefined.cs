@@ -48,4 +48,31 @@ namespace Core.Common.ErrorDefined
 
     }
 
+
+    public class AndroidcConstructorsSystemException : ApplicationException
+    {
+
+        /// <summary> 安卓系统组件构建异常 </summary>
+        public AndroidcConstructorsSystemException() : base("安卓系统组件构建异常") { }
+
+    }
+
+
+    public class AndroidcConstructorsViewException : ApplicationException
+    {
+
+        /// <summary> 安卓屏幕组件构建异常 </summary>
+        public AndroidcConstructorsViewException() : base("安卓屏幕组件构建异常") { }
+
+    }
+
+
+    public class AndroidcConstructorsModuleException : ApplicationException
+    {
+
+        /// <summary> 安卓功能组件构建异常 </summary>
+        public AndroidcConstructorsModuleException() : base("安卓功能组件构建异常") { }
+
+    }
+
 }

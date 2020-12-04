@@ -6,18 +6,15 @@
      \  |___    //  __'  \  //  \__    /   /   (| (___\ ||(: (____/ //  \  |___  \  |___    _____ |.  \    \. | // ___)_     |.  |     
     ( \_|:  \  /   /  \\  \(:   / "\  /   /    |:       :) \        /  ( \_|:  \( \_|:  \  ))_  ")|    \    \ |(:      "|    \:  |     
      \_______)(___/    \___)\_______)|___/     (________/   \"_____/    \_______)\_______)(_____(  \___|\____\) \_______)     \__|     
-                                                                                                                                   
 
-    Copyright (c) 2020, @ quinn.7@foxmail.com, All rights reserved
 
-    GitPath      : https://github.com/quinn7solomon/LazyDoll.Net
-    FrameName    : LazyDoll.Net
-    CreatorName  : Quinn7k
-    CreationTime : 2020.11.19
+    Copyright © 2020 - 2020 Quinn7k.All Rights Reserved.
 
-    Module Responsibility Description : NA
+    GitHub.Url   : https://github.com/quinn7solomon/LazyDoll.Net
+    CreatorMail  : quinn.7@foxmail.com
 
  */
+
 
 using System.Collections.Generic;
 using Core.Common.Overall;
@@ -32,14 +29,31 @@ namespace Core.TestingKit.App
     public class ElementStructure
     {
 
-        public string By;
-        public string El;
-        public string Id;
-        public string PageName;
-        public string ElementName;
-        public string AnchorBy;
-        public string AnchorEl;
-        public string AnchorId;
+        /// <summary> 元素定位方式 </summary>
+        public string By { get; set; }
+
+        /// <summary> 元素定位对应属性 </summary>
+        public string El { get; set; }
+
+        /// <summary> 元素列表下标 </summary>
+        public string Id { get; set; }
+
+        /// <summary> 模型页面名称 </summary>
+        public string PageName { get; set; }
+
+        /// <summary> 元素组件名称 </summary>
+        public string ElementName { get; set; }
+
+        /// <summary> 锚元素定位方式 </summary>
+        public string AnchorBy { get; set; }
+
+        /// <summary> 锚元素定位对应属性 </summary>
+        public string AnchorEl { get; set; }
+
+        /// <summary> 锚元素列表下标 </summary>
+        public string AnchorId { get; set; }
+
+        /// <summary> 源字典 </summary>
         private readonly Dictionary<string, string> SourceDictionary;
 
 
@@ -49,7 +63,6 @@ namespace Core.TestingKit.App
         /// <param name="sourceDictionary"></param>
         public ElementStructure(Dictionary<string, string> sourceDictionary)
         {
-
             SourceDictionary = sourceDictionary;
 
             By = sourceDictionary[GlobalConst.ELEMENT_BY];
@@ -68,7 +81,6 @@ namespace Core.TestingKit.App
                 AnchorEl = sourceDictionary[GlobalConst.ANCHOR_ELEMENT_EL];
                 AnchorId = sourceDictionary[GlobalConst.ANCHOR_ELEMENT_ID];
             }
-
         }
 
 
