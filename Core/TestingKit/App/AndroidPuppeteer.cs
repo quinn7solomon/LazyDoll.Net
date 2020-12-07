@@ -17,7 +17,6 @@
 
 
 using System;
-using System.Collections.Generic;
 using Core.Common.ErrorDefined;
 using Core.Common.Log;
 using OpenQA.Selenium.Appium.Android;
@@ -39,10 +38,10 @@ namespace Core.TestingKit.App.Android
         private readonly AndroidDriver<AndroidElement> AndroidDriver;
 
         /// <summary> 独一的程序组件对象 </summary>
-        private AndroidConstructorsSystem UniqueAndroidConstructorsApp = null;
+        private AndroidEntitySystem UniqueAndroidConstructorsApp = null;
 
         /// <summary> 独一的屏幕组件对象 </summary>
-        private AndroidConstructorsView UniqueAndroidConstructorsView = null;
+        private AndroidEntityView UniqueAndroidConstructorsView = null;
 
 
         /// <summary>
@@ -60,13 +59,13 @@ namespace Core.TestingKit.App.Android
         /// 构建程序组件
         /// </summary>
         /// <returns> 程序组件 </returns>
-        public AndroidConstructorsSystem System()
+        public AndroidEntitySystem System()
         {
             if (UniqueAndroidConstructorsApp == null)
             {
                 try
                 {
-                    UniqueAndroidConstructorsApp = new AndroidConstructorsSystem(AndroidDriver);
+                    UniqueAndroidConstructorsApp = new AndroidEntitySystem(AndroidDriver);
                 }
 
                 catch (Exception err)
@@ -84,13 +83,13 @@ namespace Core.TestingKit.App.Android
         /// 构建屏幕组件
         /// </summary>
         /// <returns> 屏幕组件 </returns>
-        public AndroidConstructorsView View()
+        public AndroidEntityView View()
         {
             if (UniqueAndroidConstructorsView == null)
             {
                 try
                 {
-                    UniqueAndroidConstructorsView = new AndroidConstructorsView(AndroidDriver);
+                    UniqueAndroidConstructorsView = new AndroidEntityView(AndroidDriver);
                 }
 
                 catch (Exception err)
@@ -108,11 +107,11 @@ namespace Core.TestingKit.App.Android
         /// 构建功能组件
         /// </summary>
         /// <returns> 功能组件 </returns>
-        public AndroidConstructorsModule Module(Dictionary<string, string> elementDictionary)
+        public AndroidEntityWidget Widget(ElementStructure elementStructure)
         {
             try
             {
-                return new AndroidConstructorsModule(AndroidDriver, elementDictionary);
+                return new AndroidEntityWidget(AndroidDriver, elementStructure);
             }
 
             catch (Exception err)

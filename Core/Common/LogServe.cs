@@ -73,6 +73,7 @@ namespace Core.Common.Log
             try
             {
                 LogServeCore.Debug(message);
+                Console.WriteLine(message);
             }
 
             catch (Exception err)
@@ -91,6 +92,7 @@ namespace Core.Common.Log
             try
             {
                 LogServeCore.Info(message);
+                Console.WriteLine(message);
             }
 
             catch (Exception err)
@@ -109,6 +111,7 @@ namespace Core.Common.Log
             try
             {
                 LogServeCore.Error(message);
+                Console.WriteLine(message);
             }
 
             catch (Exception err)
@@ -127,6 +130,7 @@ namespace Core.Common.Log
             try
             {
                 LogServeCore.Warn(message);
+                Console.WriteLine(message);
             }
 
             catch (Exception err)
@@ -145,6 +149,7 @@ namespace Core.Common.Log
             try
             {
                 LogServeCore.Fatal(message);
+                Console.WriteLine(message);
             }
 
             catch (Exception err)

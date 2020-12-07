@@ -53,18 +53,13 @@ namespace Core.TestingKit.App
         /// <summary> 锚元素列表下标 </summary>
         public string AnchorId { get; set; }
 
-        /// <summary> 源字典 </summary>
-        private readonly Dictionary<string, string> SourceDictionary;
 
-
-        /// <summary>
+/*        /// <summary>
         /// 初始化并解析元素结构字典
         /// </summary>
         /// <param name="sourceDictionary"></param>
         public ElementStructure(Dictionary<string, string> sourceDictionary)
         {
-            SourceDictionary = sourceDictionary;
-
             By = sourceDictionary[GlobalConst.ELEMENT_BY];
             El = sourceDictionary[GlobalConst.ELEMENT_EL];
             PageName = sourceDictionary[GlobalConst.ELEMENT_PAGE_NAME];
@@ -81,13 +76,7 @@ namespace Core.TestingKit.App
                 AnchorEl = sourceDictionary[GlobalConst.ANCHOR_ELEMENT_EL];
                 AnchorId = sourceDictionary[GlobalConst.ANCHOR_ELEMENT_ID];
             }
-        }
-
-
-        /// <summary>
-        /// 获取源字典
-        /// </summary>
-        public Dictionary<string, string> GetSourceDictionary => SourceDictionary;
+        }*/
 
     }
 

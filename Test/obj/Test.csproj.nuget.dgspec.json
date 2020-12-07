@@ -68,6 +68,10 @@
               "target": "Package",
               "version": "[1.0.11, )"
             },
+            "NUnit.Console": {
+              "target": "Package",
+              "version": "[3.11.1, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"

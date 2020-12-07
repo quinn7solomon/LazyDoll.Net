@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Core.Common.Overall;
+﻿
 using Core.TestingKit.App;
 using Core.TestingKit.App.Android;
 using OpenQA.Selenium.Appium.Android;
@@ -11,7 +9,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            DriverConfig DriverConfig = new DriverConfig
+            DriverConfiguration DriverConfig = new DriverConfiguration
             {
                 PlatformName = "Android",
                 PlatformVersion = "8.1.0",
@@ -25,26 +23,27 @@ namespace Test
 
             AndroidDriver<AndroidElement> AndroidDriver = new AndroidDriverCore(DriverConfig).StartUniqueDriver();
             AndroidPuppeteer AndroidPuppeteer = new AndroidPuppeteer(AndroidDriver);
-            AndroidConstructorsSystem AndroidConstructorsSystem = AndroidPuppeteer.System();
-            AndroidConstructorsView AndroidConstructorsView = AndroidPuppeteer.View();
 
-            AndroidConstructorsModule Button1 = AndroidPuppeteer.Module(new Dictionary<string, string> 
-                {
-                    { GlobalConst.ELEMENT_BY, "id" },
-                    { GlobalConst.ELEMENT_EL, "com.ylyread.xs:id/imageview" },
-                    { GlobalConst.ELEMENT_ID, "2" },
-                    { GlobalConst.ELEMENT_PAGE_NAME, "首页" },
-                    { GlobalConst.ELEMENT_ELEMENT_NAME, "书城页icon" },
-                });
+            AndroidEntitySystem AndroidConstructorsSystem = AndroidPuppeteer.System();
+            AndroidEntityView AndroidConstructorsView = AndroidPuppeteer.View();
 
-            AndroidConstructorsModule Button2 = AndroidPuppeteer.Module(new Dictionary<string, string> 
-                {
-                    { GlobalConst.ELEMENT_BY, "id" },
-                    { GlobalConst.ELEMENT_EL, "com.ylyread.xs:id/imageview" },
-                    { GlobalConst.ELEMENT_ID, "4" },
-                    { GlobalConst.ELEMENT_PAGE_NAME, "首页" },
-                    { GlobalConst.ELEMENT_ELEMENT_NAME, "我的页icon" },
-                });
+            AndroidEntityWidget Button1 = AndroidPuppeteer.Widget(new ElementStructure
+            {
+                By = "id",
+                El = "com.ylyread.xs:id/imageview",
+                Id = "2",
+                PageName = "首页",
+                ElementName = "书城页icon",
+            });
+
+            AndroidEntityWidget Button2 = AndroidPuppeteer.Widget(new ElementStructure
+            {
+                By = "id",
+                El = "com.ylyread.xs:id/imageview",
+                Id = "4",
+                PageName = "首页",
+                ElementName = "我的页icon",
+            });
 
             AndroidConstructorsView.SwipeDown();
             AndroidConstructorsView.SwipeDown();

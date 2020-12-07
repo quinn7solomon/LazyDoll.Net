@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8oL7sETUZ2LAvuPd2FkovBM5+80V1Og2mo1eyR8Od5wr7oMRvPQR1Ct673aEEO5H6jjJIX4uQ10ICpSRXvw0jA==",
+  "dgSpecHash": "BpKMX1Pzbt+aaJO4ZIz5qAt9LJg7SHrAr0vNoY1YbF9VeYHwQ21PuMF6MA3zbxJgx04QpWR1KP2HH7CEYHwATQ==",
   "success": true,
   "projectFilePath": "F:\\LazyDoll.Net\\Test\\Test.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,13 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\nlog.schema\\4.7.5\\nlog.schema.4.7.5.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\nunit.allure\\1.0.11\\nunit.allure.1.0.11.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\nunit.console\\3.11.1\\nunit.console.3.11.1.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\nunit.consolerunner\\3.11.1\\nunit.consolerunner.3.11.1.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\nunit.extension.nunitprojectloader\\3.6.0\\nunit.extension.nunitprojectloader.3.6.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\nunit.extension.nunitv2driver\\3.8.0\\nunit.extension.nunitv2driver.3.8.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\nunit.extension.nunitv2resultwriter\\3.6.0\\nunit.extension.nunitv2resultwriter.3.6.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\nunit.extension.teamcityeventlistener\\1.0.7\\nunit.extension.teamcityeventlistener.1.0.7.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\nunit.extension.vsprojectloader\\3.8.0\\nunit.extension.vsprojectloader.3.8.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\selenium.support\\3.141.0\\selenium.support.3.141.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\selenium.webdriver\\3.141.0\\selenium.webdriver.3.141.0.nupkg.sha512",

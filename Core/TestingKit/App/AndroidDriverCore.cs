@@ -48,7 +48,7 @@ namespace Core.TestingKit.App.Android
         private readonly string ClientPort;
 
         /// <summary> 驱动配置对象 </summary>
-        private readonly DriverConfig DriverConfig;
+        private readonly DriverConfiguration DriverConfig;
 
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Core.TestingKit.App.Android
         /// </summary>
         /// <param name="driverConfig"> DriverConfig 对象 </param>
         /// <param name="clientPort"> 客户端端口值 </param>
-        public AndroidDriverCore(DriverConfig driverConfig, string clientUrl = "127.0.0.1", string clientPort = "4723")
+        public AndroidDriverCore(DriverConfiguration driverConfig, string clientUrl = "127.0.0.1", string clientPort = "4723")
         {
 
             ClientUrl = clientUrl;
