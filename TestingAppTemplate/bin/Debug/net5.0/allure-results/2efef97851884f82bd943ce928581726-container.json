@@ -1,0 +1,76 @@
+{
+  "uuid": "002471ec-ac9e-49e2-b938-32120299d07a-tc-0-1000",
+  "name": "TestingAppTemplate.Case.Case01Template.Test03CalculatorAddition(4,5)",
+  "children": [
+    "2a746570-29e9-45f3-aaf3-d180990b1cd8-tr-0-1003"
+  ],
+  "befores": [
+    {
+      "name": "OneTimeSetUp",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607413159644,
+      "stop": 1607413159644
+    },
+    {
+      "name": "SetUp",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607413159644,
+      "stop": 1607413159644
+    }
+  ],
+  "afters": [
+    {
+      "name": "TearDown",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607413159644,
+      "stop": 1607413159644
+    },
+    {
+      "name": "OneTimeTearDown",
+      "status": "none",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "It's not possible to get status of OneTimeTearDown",
+        "trace": "See Allure.NUnit wiki"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607413159644,
+      "stop": 1607413159644
+    }
+  ],
+  "links": [],
+  "start": 1607413153444,
+  "stop": 1607413159654
+}

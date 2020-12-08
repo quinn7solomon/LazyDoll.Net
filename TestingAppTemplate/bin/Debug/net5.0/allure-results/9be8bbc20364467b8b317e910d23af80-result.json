@@ -1,0 +1,76 @@
+{
+  "uuid": "88305b8b-8235-4895-a92a-ac7a1e4482c6-tr-0-1006",
+  "historyId": "TestingAppTemplate.Case.Case01Template.Test03GoogleBrowserBaiduSearch",
+  "fullName": "TestingAppTemplate.Case.Case01Template.Test03GoogleBrowserBaiduSearch",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-8EPUUAL"
+    },
+    {
+      "name": "testClass",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "testMethod",
+      "value": "Test03GoogleBrowserBaiduSearch"
+    },
+    {
+      "name": "package",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "suite",
+      "value": "谷歌原生系统测试示例"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    }
+  ],
+  "links": [],
+  "name": "Test03GoogleBrowserBaiduSearch",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "  Expected: True\r\n  But was:  False\r\n",
+    "trace": "   at TestingAppTemplate.Case.Case01Template.Test03GoogleBrowserBaiduSearch() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 173\r\n"
+  },
+  "stage": "finished",
+  "description": "启动谷歌浏览器并搜索百度URL\n",
+  "steps": [
+    {
+      "name": "Test03GoogleBrowserBaiduSearch",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "  Expected: True\r\n  But was:  False\r\n",
+        "trace": "   at TestingAppTemplate.Case.Case01Template.Test03GoogleBrowserBaiduSearch() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 173\r\n"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "c134b14ca2e64674a11b062deffb99d0-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1607418331670,
+      "stop": 1607418354877
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1607418331670,
+  "stop": 1607418354878
+}

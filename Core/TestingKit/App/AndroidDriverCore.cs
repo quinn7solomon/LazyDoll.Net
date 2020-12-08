@@ -17,17 +17,19 @@
 
 
 using System;
-using Core.Common.Log;
-using Core.Common.ErrorDefined;
-using OpenQA.Selenium.Appium.Android;
 using System.Threading;
+
+using OpenQA.Selenium.Appium.Android;
+
+using Core.Common.Log;
+using Core.Common.ErrorCustom;
 
 
 namespace Core.TestingKit.App.Android
 {
 
     /// <summary>
-    /// 实例化安卓驱动类
+    /// 安卓驱动核心
     /// </summary>
     public class AndroidDriverCore
     {
@@ -35,7 +37,7 @@ namespace Core.TestingKit.App.Android
         /// <summary> 日志服务 </summary>
         private readonly LogServe LogServe = LogServe.Instance;
 
-        /// <summary> AndroidDriver 实例 </summary>
+        /// <summary> 驱动引擎 </summary>
         private static AndroidDriver<AndroidElement> _AndroidDriverEntity = null;
 
         /// <summary> 线程锁 </summary>
@@ -54,23 +56,21 @@ namespace Core.TestingKit.App.Android
         /// <summary>
         /// 实例化安卓驱动类
         /// </summary>
-        /// <param name="driverConfig"> DriverConfig 对象 </param>
+        /// <param name="driverConfiguration"> 驱动器配置对象 </param>
         /// <param name="clientPort"> 客户端端口值 </param>
-        public AndroidDriverCore(DriverConfiguration driverConfig, string clientUrl = "127.0.0.1", string clientPort = "4723")
+        public AndroidDriverCore(DriverConfiguration driverConfiguration, string clientUrl = "127.0.0.1", string clientPort = "4723")
         {
-
             ClientUrl = clientUrl;
             ClientPort = clientPort;
-            DriverConfig = driverConfig;
-
+            DriverConfig = driverConfiguration;
         }
 
 
         /// <summary>
-        /// 开始函数
+        /// 启动引擎
         /// </summary>
         /// <returns></returns>
-        public AndroidDriver<AndroidElement> StartUniqueDriver()
+        public AndroidDriver<AndroidElement> StartEngine()
         {
             try
             {
@@ -79,7 +79,7 @@ namespace Core.TestingKit.App.Android
                     _AndroidDriverEntity ??= new AndroidDriver<AndroidElement>
                         (new Uri($"http://{ClientUrl}:{ClientPort}/wd/hub"), DriverConfig.AnalysisCapabilities());
 
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1000);  // The first sheep.
 
                     return _AndroidDriverEntity;
                 }
@@ -89,7 +89,7 @@ namespace Core.TestingKit.App.Android
             {
                 LogServe.Error($"Error:: 安卓设备驱动启动失败: {err.Message}");
 
-                throw new AndroidDriverException(err.Message);
+                throw new AndroidDriverException();
             }
         }
     

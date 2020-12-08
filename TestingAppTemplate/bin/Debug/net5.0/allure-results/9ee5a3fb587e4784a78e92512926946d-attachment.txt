@@ -1,0 +1,5 @@
+打开应用程序 => [Package:com.android.chrome | Activity:com.google.android.apps.chrome.Main]
+Error:: 原生 WebDriverWait 封装函数异常:: Timed out after 5 seconds
+Error:: 元素结构对象解析函数异常:: Timed out after 5 seconds
+Error:: 判断对象元素是否存在于当前可视页面异常:: Timed out after 5 seconds
+Error:: 点击物理按键异常: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up

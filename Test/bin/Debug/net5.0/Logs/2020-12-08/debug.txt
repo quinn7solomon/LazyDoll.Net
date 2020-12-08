@@ -1,0 +1,12 @@
+2020-12-08 10:49:49.9892 - Info  || 打开应用程序 => [Package:com.ylyread.xs | Activity:com.wxreader.com.activity.SplashActivity] 
+2020-12-08 10:49:49.9969 - Info  || 应用程序执行后台休眠 => 5 
+2020-12-08 10:49:58.9781 - Info  || 应用程序结束后台休眠 
+2020-12-08 10:49:59.4497 - Info  || 安卓驱动完成销毁 
+2020-12-08 10:54:03.3629 - Info  || 打开应用程序 => [Package:com.ylyread.xs | Activity:com.wxreader.com.activity.SplashActivity] 
+2020-12-08 10:54:03.5226 - Info  || 点击物理按键 => Home键 
+2020-12-08 10:58:53.3698 - Info  || 打开应用程序 => [Package:com.ylyread.xs | Activity:com.wxreader.com.activity.SplashActivity] 
+2020-12-08 10:58:53.5658 - Info  || 应用程序包[com.ylyread.xs]是否已安装 => [True] 
+2020-12-08 10:58:53.9741 - Info  || 安卓驱动完成销毁 
+2020-12-08 11:47:33.2702 - Info  || 打开应用程序 => [Package:com.ylyread.xs | Activity:com.wxreader.com.activity.SplashActivity] 
+2020-12-08 11:47:33.3936 - Info  || 判断应用程序包[com.ylyread.xs]是否已安装 => [True] 
+2020-12-08 11:47:33.7361 - Info  || 安卓驱动完成销毁 

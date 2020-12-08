@@ -19,6 +19,7 @@
 using Core.Common.Log;
 using Core.TestingKit.App;
 using Core.TestingKit.App.Android;
+
 using OpenQA.Selenium.Appium.Android;
 
 
@@ -47,9 +48,7 @@ namespace TestingAppTemplate.Model
         /// <param name="androidDriver"> AndroidDriver对象 </param>
         public ModelSystem(AndroidDriver<AndroidElement> androidDriver)
         {
-
             AndroidPuppeteer = new AndroidPuppeteer(androidDriver);
-
         }
 
 
@@ -68,7 +67,7 @@ namespace TestingAppTemplate.Model
                 By = "id",
                 El = "com.google.android.apps.nexuslauncher:id/all_apps_handle",
                 PageName = ModelName,
-                ElementName = "首页向上箭头",
+                WidgetName = "首页向上箭头",
             });
 
 
@@ -79,7 +78,7 @@ namespace TestingAppTemplate.Model
                 By = "id",
                 El = "com.google.android.apps.nexuslauncher:id/search_box_input",
                 PageName = ModelName,
-                ElementName = "应用程序列表.搜索框",
+                WidgetName = "应用程序列表.搜索框",
             });
 
 
@@ -90,7 +89,7 @@ namespace TestingAppTemplate.Model
                 By = "id",
                 El = "com.google.android.apps.nexuslauncher:id/icon",
                 PageName = ModelName,
-                ElementName = "应用程序列表.图标列表",
+                WidgetName = "应用程序列表.图标列表",
             });
 
     }

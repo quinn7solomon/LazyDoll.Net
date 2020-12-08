@@ -1,0 +1,76 @@
+{
+  "uuid": "fb3a70ad-b11d-47dd-9f40-0e936a3c94ca-tr-0-1001",
+  "historyId": "TestingAppTemplate.Case.Case01Template.Test01SearchAppsCalculator",
+  "fullName": "TestingAppTemplate.Case.Case01Template.Test01SearchAppsCalculator",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-8EPUUAL"
+    },
+    {
+      "name": "testClass",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "testMethod",
+      "value": "Test01SearchAppsCalculator"
+    },
+    {
+      "name": "package",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "suite",
+      "value": "谷歌原生系统测试示例"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    }
+  ],
+  "links": [],
+  "name": "Test01SearchAppsCalculator",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "Core.Common.ErrorCustom.ElementResolvesToEmptyException : 元素解析为空异常",
+    "trace": "   at Core.TestingKit.App.Android.AndroidEntityWidget.AnalyticalElement(Int32 waitTime, Boolean tolerance) in F:\\LazyDoll.Net\\Core\\TestingKit\\App\\AndroidEntityWidget.cs:line 463\r\n   at Core.TestingKit.App.Android.AndroidEntityWidget.Tap(Int32 count, Int32 waitTime, Boolean logOutput) in F:\\LazyDoll.Net\\Core\\TestingKit\\App\\AndroidEntityWidget.cs:line 76\r\n   at TestingAppTemplate.Case.Case01Template.SetUp() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 89"
+  },
+  "stage": "finished",
+  "description": "\nSetUp SetUp method failed\n通过应用程序列表搜索框搜索 Calculator\n",
+  "steps": [
+    {
+      "name": "Test01SearchAppsCalculator skipped because of OneTimeSetUp failure",
+      "status": "skipped",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "Core.Common.ErrorCustom.ElementResolvesToEmptyException : 元素解析为空异常",
+        "trace": "   at Core.TestingKit.App.Android.AndroidEntityWidget.AnalyticalElement(Int32 waitTime, Boolean tolerance) in F:\\LazyDoll.Net\\Core\\TestingKit\\App\\AndroidEntityWidget.cs:line 463\r\n   at Core.TestingKit.App.Android.AndroidEntityWidget.Tap(Int32 count, Int32 waitTime, Boolean logOutput) in F:\\LazyDoll.Net\\Core\\TestingKit\\App\\AndroidEntityWidget.cs:line 76\r\n   at TestingAppTemplate.Case.Case01Template.SetUp() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 89"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "25bb53d7a05341a6a7c2590b8623ea6a-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1607415780056,
+      "stop": 1607415796291
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1607415780055,
+  "stop": 1607415796302
+}

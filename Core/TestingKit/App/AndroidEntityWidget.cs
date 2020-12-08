@@ -19,11 +19,13 @@
 using System;
 using System.Drawing;
 using System.Collections.Generic;
-using Core.Common.Log;
-using Core.Common.ErrorDefined;
+
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.MultiTouch;
+
+using Core.Common.Log;
+using Core.Common.ErrorCustom;
 
 
 namespace Core.TestingKit.App.Android
@@ -41,9 +43,6 @@ namespace Core.TestingKit.App.Android
         /// <summary> 安卓驱动 </summary>
         private readonly AndroidDriver<AndroidElement> AndroidDriver;
 
-        /// <summary> 触屏操作对象 </summary>
-        private readonly TouchAction TouchAction;
-
         /// <summary> 元素结构对象 </summary>
         private readonly ElementStructure ElementStructure;
 
@@ -59,11 +58,8 @@ namespace Core.TestingKit.App.Android
         /// </summary>
         public AndroidEntityWidget(AndroidDriver<AndroidElement> androidDriver, ElementStructure elementStructure)
         {
-
             AndroidDriver = androidDriver;
-            TouchAction = new TouchAction(AndroidDriver);
             ElementStructure = elementStructure;
-
         }
 
 
@@ -78,9 +74,9 @@ namespace Core.TestingKit.App.Android
             try
             {
                 AnalyticalElement(waitTime);
-                TouchAction.Tap(ElementContainer[count]).Perform();
+                new TouchAction(AndroidDriver).Tap(ElementContainer[count]).Perform();
 
-                if (logOutput) LogServe.Info($"单击事件 => {ElementStructure.PageName} => {ElementStructure.ElementName}");
+                if (logOutput) LogServe.Info($"单击事件 => {ElementStructure.PageName} => {ElementStructure.WidgetName}");
             }
 
             catch (Exception err)
@@ -101,9 +97,9 @@ namespace Core.TestingKit.App.Android
             try
             {
                 AnalyticalElement(waitTime);
-                TouchAction.LongPress(ElementContainer[count]).Perform();
+                new TouchAction(AndroidDriver).LongPress(ElementContainer[count]).Perform();
 
-                if (logOutput) LogServe.Info($"长按事件 => {ElementStructure.PageName} => {ElementStructure.ElementName}");
+                if (logOutput) LogServe.Info($"长按事件 => {ElementStructure.PageName} => {ElementStructure.WidgetName}");
             }
 
             catch (Exception err)
@@ -126,9 +122,9 @@ namespace Core.TestingKit.App.Android
             try
             {
                 AnalyticalElement(waitTime);
-                TouchAction.MoveTo(ElementContainer[count], x, y).Perform();
+                new TouchAction(AndroidDriver).MoveTo(ElementContainer[count], x, y).Perform();
 
-                if (logOutput) LogServe.Info($"拖拽事件 => {ElementStructure.PageName} => {ElementStructure.ElementName} => [x:{x} | y:{y}]");
+                if (logOutput) LogServe.Info($"拖拽事件 => {ElementStructure.PageName} => {ElementStructure.WidgetName} => [x:{x} | y:{y}]");
             }
 
             catch (Exception err)
@@ -152,7 +148,7 @@ namespace Core.TestingKit.App.Android
                 AnalyticalElement(waitTime);
                 ElementContainer[count].SendKeys(keys);
 
-                if (logOutput) LogServe.Info($"输入内容 => {ElementStructure.PageName} => {ElementStructure.ElementName} => [{keys}]");
+                if (logOutput) LogServe.Info($"输入内容 => {ElementStructure.PageName} => {ElementStructure.WidgetName} => [{keys}]");
             }
 
             catch (Exception err)
@@ -175,7 +171,7 @@ namespace Core.TestingKit.App.Android
                 AnalyticalElement(waitTime);
                 ElementContainer[count].Clear();
 
-                if (logOutput) LogServe.Info($"清除内容 => {ElementStructure.PageName} => {ElementStructure.ElementName}");
+                if (logOutput) LogServe.Info($"清除内容 => {ElementStructure.PageName} => {ElementStructure.WidgetName}");
             }
 
             catch (Exception err)
@@ -316,7 +312,7 @@ namespace Core.TestingKit.App.Android
                 string elementText = GetAttributeText(count, waitTime, false);
                 string elementFloat = System.Text.RegularExpressions.Regex.Replace(elementText, @"[^0-9]+", "");
 
-                if (logOutput) LogServe.Info($"提取数字 => {ElementStructure.PageName} => {ElementStructure.ElementName} => [{elementFloat}]");
+                if (logOutput) LogServe.Info($"提取数字 => {ElementStructure.PageName} => {ElementStructure.WidgetName} => [{elementFloat}]");
                 return elementFloat;
             }
 
@@ -334,7 +330,7 @@ namespace Core.TestingKit.App.Android
         /// <param name="waitTime"> 元素等待时长 </param>
         /// <param name="logOutput"> 是否打印执行日志 </param>
         /// <returns> 布尔值 </returns>
-        public bool IsInPage(int count = 0, int waitTime = 5, bool logOutput = true)
+        public bool IsInPage(int count = 0, int waitTime = 3, bool logOutput = true)
         {
             try
             {
@@ -346,7 +342,7 @@ namespace Core.TestingKit.App.Android
                     elementExist = false;
                 }
 
-                if (logOutput) LogServe.Info($"判断存在 => {ElementStructure.PageName} => {ElementStructure.ElementName} => {elementExist}");
+                if (logOutput) LogServe.Info($"判断存在 => {ElementStructure.PageName} => {ElementStructure.WidgetName} => {elementExist}");
                 return elementExist;
             }
 
@@ -372,7 +368,7 @@ namespace Core.TestingKit.App.Android
                 AnalyticalElement(waitTime);
                 elementCount = ElementContainer.Count;
 
-                if (logOutput) LogServe.Info($"获取元素数量 => {ElementStructure.PageName} => {ElementStructure.ElementName} => {elementCount}");
+                if (logOutput) LogServe.Info($"获取元素数量 => {ElementStructure.PageName} => {ElementStructure.WidgetName} => {elementCount}");
                 return elementCount;
             }
 
@@ -399,7 +395,7 @@ namespace Core.TestingKit.App.Android
                 AnalyticalElement(waitTime);
                 elementLocation = ElementContainer[count].Location;
 
-                if (logOutput) LogServe.Info($"获取坐标 => {ElementStructure.PageName} => {ElementStructure.ElementName} => {elementLocation}");
+                if (logOutput) LogServe.Info($"获取坐标 => {ElementStructure.PageName} => {ElementStructure.WidgetName} => {elementLocation}");
                 return elementLocation;
             }
 
@@ -427,7 +423,7 @@ namespace Core.TestingKit.App.Android
                 AnalyticalElement(waitTime);
                 elementSize = ElementContainer[count].Size;
 
-                if (logOutput) LogServe.Info($"获取大小 => {ElementStructure.PageName} => {ElementStructure.ElementName} => {elementSize}");
+                if (logOutput) LogServe.Info($"获取大小 => {ElementStructure.PageName} => {ElementStructure.WidgetName} => {elementSize}");
                 return elementSize;
             }
 
@@ -453,7 +449,7 @@ namespace Core.TestingKit.App.Android
                 {
                     AndroidElement anchorElement = BaseWebDriverWait(ElementStructure.AnchorBy, ElementStructure.AnchorEl, waitTime)[int.Parse(ElementStructure.AnchorId)];
 
-                    ElementContainer = BaseWebDriverWait(anchorElement, ElementStructure.By, ElementStructure.El, waitTime);
+                    ElementContainer = AnchorWebDriverWait(anchorElement, ElementStructure.By, ElementStructure.El, waitTime);
                 }
                 // 否则 直接获取目标元素
                 else
@@ -464,7 +460,7 @@ namespace Core.TestingKit.App.Android
                 // 如果元素容器列表为空 且 容错机制开关为关闭 则 抛出 ElementResolvesToEmptyException 异常
                 if (ElementContainer is { Count: < 1 } && tolerance == false)
                 {
-                    throw new ElementResolvesToEmptyException("元素解析结果为空");
+                    throw new ElementResolvesToEmptyException();
                 }
 
                 // 如果 ElementStructure 中存在元素ID 则 过滤掉其他多余的元素
@@ -510,7 +506,7 @@ namespace Core.TestingKit.App.Android
                     } catch (Exception) { return null; }
                 });
 
-                // 如果元素存在 则 元素列表容器
+                // 如果元素存在 则 提取并入元素列表容器
                 if (elementsReadOnly != null)
                 {
                     foreach (AndroidElement element in elementsReadOnly)
@@ -537,18 +533,14 @@ namespace Core.TestingKit.App.Android
         /// <param name="el"> 元素定位对应属性 </param>
         /// <param name="waitTime"> 元素等待时长 </param>
         /// <returns> 元素列表 </returns>
-        private List<AndroidElement> BaseWebDriverWait(AndroidElement anchorElement, string by, string el, int waitTime)
+        private List<AndroidElement> AnchorWebDriverWait(AndroidElement anchorElement, string by, string el, int waitTime)
         {
             try
             {
-                // 空的元素列表容器
                 List<AndroidElement> androidElementList = new List<AndroidElement> { };
 
-                // webDriverWait 显式等待似乎不起作用
-                // 因而通过改变全隐式等待时长来完成这一目的
                 AndroidDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(waitTime);
 
-                // 从锚元素中通过显示等待委托获取元素
                 WebDriverWait webDriverWait = new WebDriverWait(AndroidDriver, TimeSpan.FromSeconds(waitTime));
                 IReadOnlyCollection<AndroidElement> elementsReadOnly = (IReadOnlyCollection<AndroidElement>)webDriverWait.Until((d) =>
                 {
@@ -559,7 +551,6 @@ namespace Core.TestingKit.App.Android
                     } catch (Exception) { return null; }
                 });
 
-                // 如果元素存在 则 元素列表容器
                 if (elementsReadOnly != null)
                 {
                     foreach (AndroidElement element in elementsReadOnly)
@@ -595,7 +586,7 @@ namespace Core.TestingKit.App.Android
                 AnalyticalElement(waitTime);
                 elementAttribute = ElementContainer[count].GetAttribute(attributeName);
 
-                if (logOutput) LogServe.Info($"获取属性[{attributeName}] => {ElementStructure.PageName} => {ElementStructure.ElementName} => [{elementAttribute}]");
+                if (logOutput) LogServe.Info($"获取属性[{attributeName}] => {ElementStructure.PageName} => {ElementStructure.WidgetName} => [{elementAttribute}]");
                 return elementAttribute;
             }
 

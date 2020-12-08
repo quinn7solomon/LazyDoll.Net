@@ -1,0 +1,72 @@
+{
+  "uuid": "0955660a-e1b6-494e-8e5e-c0910a6a2867-tr-0-1006",
+  "historyId": "TestingAppTemplate.Case.Case01Template.Test03GoogleBrowserBaiduSearch",
+  "fullName": "TestingAppTemplate.Case.Case01Template.Test03GoogleBrowserBaiduSearch",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-8EPUUAL"
+    },
+    {
+      "name": "testClass",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "testMethod",
+      "value": "Test03GoogleBrowserBaiduSearch"
+    },
+    {
+      "name": "package",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "suite",
+      "value": "谷歌原生系统测试示例"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    }
+  ],
+  "links": [],
+  "name": "Test03GoogleBrowserBaiduSearch",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "启动谷歌浏览器并搜索百度URL\n",
+  "steps": [
+    {
+      "name": "Test03GoogleBrowserBaiduSearch",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "c9569c54ef97498bbffc21baa72d92ea-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1607419157486,
+      "stop": 1607419171586
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1607419157486,
+  "stop": 1607419171586
+}

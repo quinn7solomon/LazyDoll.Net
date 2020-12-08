@@ -1,0 +1,6 @@
+打开应用程序 => [Package:com.android.chrome | Activity:com.google.android.apps.chrome.Main]
+判断存在 => 谷歌浏览器模型 => 谷歌政策.同意按钮 => False
+输入内容 => 谷歌浏览器模型 => 首页搜索输入框 => [www.baidu.com]
+点击物理按键 => 模拟回车键
+判断存在 => 谷歌浏览器模型 => 弹出警告窗.允许按钮 => True
+单击事件 => 谷歌浏览器模型 => 弹出警告窗.允许按钮

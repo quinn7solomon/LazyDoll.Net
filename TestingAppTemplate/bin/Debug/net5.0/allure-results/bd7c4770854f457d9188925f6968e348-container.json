@@ -1,0 +1,78 @@
+{
+  "uuid": "d1dc9307-ee75-41b2-826f-6cb44236250b-tc-0-1000",
+  "name": "TestingAppTemplate.Case.Case01Template.Test03CalculatorAddition(6,7)",
+  "children": [
+    "49f330e8-0c16-4204-b7b2-041a679bb241-tr-0-1005"
+  ],
+  "befores": [
+    {
+      "name": "OneTimeSetUp",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607418069884,
+      "stop": 1607418069884
+    },
+    {
+      "name": "SetUp",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607418069884,
+      "stop": 1607418069884
+    }
+  ],
+  "afters": [
+    {
+      "name": "TearDown",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "  Expected: True\r\n  But was:  False\r\n\r\nTearDown : OpenQA.Selenium.WebDriverException : An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up",
+        "trace": "   at TestingAppTemplate.Case.Case01Template.Test03CalculatorAddition(Int32 a, Int32 b) in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 173\r\n\r\n--TearDown\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)\r\n   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Appium.AppiumDriver`1.OpenQA.Selenium.Appium.Interfaces.IExecuteMethod.Execute(String commandName, Dictionary`2 parameters)\r\n   at OpenQA.Selenium.Appium.AppiumCommandExecutionHelper.PressKeyCode(IExecuteMethod executeMethod, Int32 keyCode, Int32 metastate)\r\n   at OpenQA.Selenium.Appium.Android.AndroidDriver`1.PressKeyCode(Int32 keyCode, Int32 metastate)\r\n   at Core.TestingKit.App.Android.AndroidEntityView.BasePressKey(Int32 KeyCode, String KeyName, Boolean logOutput) in F:\\LazyDoll.Net\\Core\\TestingKit\\App\\AndroidEntityView.cs:line 182\r\n   at Core.TestingKit.App.Android.AndroidEntityView.PressKeyHome(Boolean logOutput) in F:\\LazyDoll.Net\\Core\\TestingKit\\App\\AndroidEntityView.cs:line 108\r\n   at TestingAppTemplate.Case.Case01Template.TearDown() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 94"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607418069884,
+      "stop": 1607418069884
+    },
+    {
+      "name": "OneTimeTearDown",
+      "status": "none",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "It's not possible to get status of OneTimeTearDown",
+        "trace": "See Allure.NUnit wiki"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607418069884,
+      "stop": 1607418069884
+    }
+  ],
+  "links": [],
+  "start": 1607418068035,
+  "stop": 1607418069908
+}

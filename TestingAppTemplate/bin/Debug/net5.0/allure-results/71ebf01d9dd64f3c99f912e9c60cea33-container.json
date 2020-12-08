@@ -1,0 +1,76 @@
+{
+  "uuid": "29b069e0-06c7-4773-a033-df67498069a1-tc-0-1000",
+  "name": "TestingAppTemplate.Case.Case01Template.Test03GoogleBrowserBaiduSearch",
+  "children": [
+    "5023896d-02a5-400e-8171-4bf26a4ff12e-tr-0-1006"
+  ],
+  "befores": [
+    {
+      "name": "OneTimeSetUp",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607418733484,
+      "stop": 1607418733484
+    },
+    {
+      "name": "SetUp",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607418733484,
+      "stop": 1607418733484
+    }
+  ],
+  "afters": [
+    {
+      "name": "TearDown",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607418733484,
+      "stop": 1607418733484
+    },
+    {
+      "name": "OneTimeTearDown",
+      "status": "none",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "It's not possible to get status of OneTimeTearDown",
+        "trace": "See Allure.NUnit wiki"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607418733484,
+      "stop": 1607418733484
+    }
+  ],
+  "links": [],
+  "start": 1607418722247,
+  "stop": 1607418733497
+}

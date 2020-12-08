@@ -17,11 +17,14 @@
 
 
 using System;
+using System.Drawing;
 using System.Threading;
-using Core.Common.Log;
+
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.MultiTouch;
+
+using Core.Common.Log;
 
 
 namespace Core.TestingKit.App.Android
@@ -39,11 +42,8 @@ namespace Core.TestingKit.App.Android
         /// <summary> 安卓驱动 </summary>
         private readonly AndroidDriver<AndroidElement> AndroidDriver;
 
-        /// <summary> 设备屏幕的高度 </summary>
-        int DeviceWindowHeight;
-
-        /// <summary> 设备屏幕的宽度 </summary>
-        int DeviceWindowWidth;
+        /// <summary> 设备屏幕尺寸 </summary>
+        private readonly Size DeviceWindowSize;
 
 
         /// <summary>
@@ -51,12 +51,8 @@ namespace Core.TestingKit.App.Android
         /// </summary>
         public AndroidEntityView(AndroidDriver<AndroidElement> androidDriver)
         {
-
             AndroidDriver = androidDriver;
-
-            DeviceWindowHeight = AndroidDriver.Manage().Window.Size.Height;
-            DeviceWindowWidth = AndroidDriver.Manage().Window.Size.Width;
-
+            DeviceWindowSize = AndroidDriver.Manage().Window.Size;
         }
 
 
@@ -71,7 +67,6 @@ namespace Core.TestingKit.App.Android
             {
                 if (logOutput) LogServe.Info($"应用程序执行后台休眠 => {sleepTime}");
 
-                /* Thread.Sleep(1000); */
                 AndroidDriver.BackgroundApp(TimeSpan.FromSeconds(sleepTime));
 
                 if (logOutput) LogServe.Info($"应用程序结束后台休眠");
@@ -92,7 +87,6 @@ namespace Core.TestingKit.App.Android
         {
             try
             {
-                /* Thread.Sleep(1000); */
                 AndroidDriver.HideKeyboard();
 
                 if (logOutput) LogServe.Info($"隐藏软键盘");
@@ -166,6 +160,16 @@ namespace Core.TestingKit.App.Android
 
 
         /// <summary>
+        /// 物理键盘:: 模拟回车键
+        /// </summary>
+        /// <param name="logOutput"> 是否打印执行日志 </param>
+        public void PressKeyEnter(bool logOutput = true)
+        {
+            BasePressKey(66, "模拟回车键", logOutput);
+        }
+
+
+        /// <summary>
         /// 点击物理按键事件封装
         /// </summary>
         /// <param name="KeyCode"> AndroidKeyCode常量 </param>
@@ -175,8 +179,8 @@ namespace Core.TestingKit.App.Android
         {
             try
             {
-                /* Thread.Sleep(1000); */
                 AndroidDriver.PressKeyCode(KeyCode);
+
                 if (logOutput) LogServe.Info($"点击物理按键 => {KeyName}");
             }
 
@@ -241,20 +245,20 @@ namespace Core.TestingKit.App.Android
                 switch (direction)
                 {
                     case "上":
-                        TouchAction.LongPress(DeviceWindowWidth / 2, DeviceWindowHeight / 2)
-                            .MoveTo(DeviceWindowWidth / 2, DeviceWindowHeight - 50).Release().Perform();
+                        TouchAction.LongPress(DeviceWindowSize.Width / 2, DeviceWindowSize.Height / 2)
+                            .MoveTo(DeviceWindowSize.Width / 2, DeviceWindowSize.Height - 50).Release().Perform();
                         break;
                     case "下":
-                        TouchAction.LongPress(DeviceWindowWidth / 2, DeviceWindowHeight / 2)
-                            .MoveTo(DeviceWindowWidth / 2, 50).Release().Perform();
+                        TouchAction.LongPress(DeviceWindowSize.Width / 2, DeviceWindowSize.Height / 2)
+                            .MoveTo(DeviceWindowSize.Width / 2, 50).Release().Perform();
                         break;
                     case "左":
-                        TouchAction.LongPress(50, DeviceWindowHeight / 2)
-                            .MoveTo(DeviceWindowWidth - 50, DeviceWindowHeight / 2).Release().Perform();
+                        TouchAction.LongPress(50, DeviceWindowSize.Height / 2)
+                            .MoveTo(DeviceWindowSize.Width - 50, DeviceWindowSize.Height / 2).Release().Perform();
                         break;
                     case "右":
-                        TouchAction.LongPress(DeviceWindowWidth - 50, DeviceWindowHeight / 2)
-                            .MoveTo(50, DeviceWindowHeight / 2).Release().Perform();
+                        TouchAction.LongPress(DeviceWindowSize.Width - 50, DeviceWindowSize.Height / 2)
+                            .MoveTo(50, DeviceWindowSize.Height / 2).Release().Perform();
                         break;
                 }
                 Thread.Sleep(500);
@@ -278,6 +282,7 @@ namespace Core.TestingKit.App.Android
             try
             {
                 AndroidDriver.Lock();
+
                 if (logOutput) LogServe.Info("锁定屏幕");
             }
 
@@ -297,6 +302,7 @@ namespace Core.TestingKit.App.Android
             try
             {
                 AndroidDriver.Unlock();
+
                 if (logOutput) LogServe.Info("解锁屏幕");
             }
 
@@ -360,8 +366,8 @@ namespace Core.TestingKit.App.Android
         {
             try
             {
-                AndroidDriver.StartRecordingScreen(
-                    AndroidStartScreenRecordingOptions.GetAndroidStartScreenRecordingOptions()
+                AndroidDriver.StartRecordingScreen(AndroidStartScreenRecordingOptions
+                    .GetAndroidStartScreenRecordingOptions()
                     .WithTimeLimit(TimeSpan.FromSeconds(10))
                     .WithBitRate(500000)
                     .WithVideoSize("720x1280"));

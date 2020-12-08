@@ -1,0 +1,2 @@
+单击事件 => 系统模型 => 首页向上箭头
+Error:: 单击事件异常:: Cached elements 'By.xpath: //*[@text='Chrome']' do not exist in DOM anymore

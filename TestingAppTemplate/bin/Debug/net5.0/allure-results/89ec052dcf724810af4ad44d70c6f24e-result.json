@@ -1,0 +1,76 @@
+{
+  "uuid": "c5269349-5724-4f95-b133-1e7a1f655079-tr-0-1002",
+  "historyId": "TestingAppTemplate.Case.Case01Template.Test02StartGoogleBrowser",
+  "fullName": "TestingAppTemplate.Case.Case01Template.Test02StartGoogleBrowser",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-8EPUUAL"
+    },
+    {
+      "name": "testClass",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "testMethod",
+      "value": "Test02StartGoogleBrowser"
+    },
+    {
+      "name": "package",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "suite",
+      "value": "谷歌原生系统测试示例"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    }
+  ],
+  "links": [],
+  "name": "Test02StartGoogleBrowser",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "Multiple failures or warnings in test:\r\n  1)   Expected: True\r\n  But was:  False\r\n\r\n  2)   Expected: True\r\n  But was:  False\r\n\r\n",
+    "trace": "   at TestingAppTemplate.Case.Case01Template.Test02StartGoogleBrowser() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 137\r\n"
+  },
+  "stage": "finished",
+  "description": "首次启动谷歌浏览器并进入首页\n",
+  "steps": [
+    {
+      "name": "Test02StartGoogleBrowser",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "Multiple failures or warnings in test:\r\n  1)   Expected: True\r\n  But was:  False\r\n\r\n  2)   Expected: True\r\n  But was:  False\r\n\r\n",
+        "trace": "   at TestingAppTemplate.Case.Case01Template.Test02StartGoogleBrowser() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 137\r\n"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "ae2491575c034472afa4337d03058114-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1607415019527,
+      "stop": 1607415032243
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1607415019527,
+  "stop": 1607415032243
+}

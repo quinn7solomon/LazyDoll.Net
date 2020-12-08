@@ -1,0 +1,72 @@
+{
+  "uuid": "53dffe1a-a9e1-4502-8c28-6d2a95c464c3-tr-0-1001",
+  "historyId": "TestingAppTemplate.Case.Case01Template.Test01SearchAppsCalculator",
+  "fullName": "TestingAppTemplate.Case.Case01Template.Test01SearchAppsCalculator",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-8EPUUAL"
+    },
+    {
+      "name": "testClass",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "testMethod",
+      "value": "Test01SearchAppsCalculator"
+    },
+    {
+      "name": "package",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "suite",
+      "value": "谷歌原生系统测试示例"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    }
+  ],
+  "links": [],
+  "name": "Test01SearchAppsCalculator",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "通过应用程序列表搜索框搜索 Calculator\n",
+  "steps": [
+    {
+      "name": "Test01SearchAppsCalculator",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "7cf00e148cd944339355be7732818606-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1607415016157,
+      "stop": 1607415019457
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1607415016156,
+  "stop": 1607415019463
+}

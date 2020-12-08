@@ -19,6 +19,7 @@
 using Core.Common.Log;
 using Core.TestingKit.App;
 using Core.TestingKit.App.Android;
+
 using OpenQA.Selenium.Appium.Android;
 
 
@@ -37,6 +38,12 @@ namespace TestingAppTemplate.Model
         /// <summary> 模型名称 </summary>
         private readonly string ModelName = "计算器模型";
 
+        /// <summary> 应用程序包名 </summary>
+        private readonly string AppPackage = "com.android.calculator2";
+
+        /// <summary> 应用程序启动名 </summary>
+        private readonly string AppActivity = "com.android.calculator2.Calculator";
+
         /// <summary> AndroidPuppeteer 构建类 </summary>
         private readonly AndroidPuppeteer AndroidPuppeteer;
 
@@ -47,9 +54,7 @@ namespace TestingAppTemplate.Model
         /// <param name="androidDriver"> AndroidDriver对象 </param>
         public ModelCalculator(AndroidDriver<AndroidElement> androidDriver)
         {
-
             AndroidPuppeteer = new AndroidPuppeteer(androidDriver);
-
         }
 
 
@@ -59,6 +64,24 @@ namespace TestingAppTemplate.Model
 
         /// <summary> 屏幕组件 </summary>
         public AndroidEntityView View => AndroidPuppeteer.View();
+
+
+        /// <summary>
+        /// 启动应用程序
+        /// </summary>
+        public void Open()
+        {
+            System.AppOpen(AppPackage, AppActivity);
+        }
+
+
+        /// <summary>
+        /// 结束应用程序
+        /// </summary>
+        public void Kill()
+        {
+            System.AppKill(AppActivity);
+        }
 
 
         /// <summary>
@@ -72,7 +95,7 @@ namespace TestingAppTemplate.Model
                 By = "id",
                 El = $"com.android.calculator2:id/digit_{number}",
                 PageName = ModelName,
-                ElementName = $"虚拟按键.{number}",
+                WidgetName = $"虚拟按键.{number}",
             });
         }
 
@@ -84,7 +107,7 @@ namespace TestingAppTemplate.Model
                 By = "id",
                 El = "com.android.calculator2:id/op_add",
                 PageName = ModelName,
-                ElementName = "虚拟按键.加号",
+                WidgetName = "虚拟按键.加号",
             });
 
 
@@ -95,7 +118,7 @@ namespace TestingAppTemplate.Model
                 By = "id",
                 El = "com.android.calculator2:id/eq",
                 PageName = ModelName,
-                ElementName = "虚拟按键.等于号",
+                WidgetName = "虚拟按键.等于号",
             });
 
 
@@ -106,7 +129,7 @@ namespace TestingAppTemplate.Model
                 By = "id",
                 El = "com.android.calculator2:id/result",
                 PageName = ModelName,
-                ElementName = "计算结果",
+                WidgetName = "计算结果",
             });
 
     }

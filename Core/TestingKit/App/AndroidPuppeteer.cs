@@ -17,9 +17,11 @@
 
 
 using System;
-using Core.Common.ErrorDefined;
-using Core.Common.Log;
+
 using OpenQA.Selenium.Appium.Android;
+
+using Core.Common.Log;
+using Core.Common.ErrorCustom;
 
 
 namespace Core.TestingKit.App.Android
@@ -34,13 +36,16 @@ namespace Core.TestingKit.App.Android
         /// <summary> 日志服务 </summary>
         private readonly LogServe LogServe = LogServe.Instance;
 
+        /// <summary> 线程锁 </summary>
+        private static readonly object ThreadLock = new object();
+
         /// <summary> 安卓驱动 </summary>
         private readonly AndroidDriver<AndroidElement> AndroidDriver;
 
-        /// <summary> 独一的程序组件对象 </summary>
+        /// <summary> 单例程序组件对象 </summary>
         private AndroidEntitySystem UniqueAndroidConstructorsApp = null;
 
-        /// <summary> 独一的屏幕组件对象 </summary>
+        /// <summary> 单例屏幕组件对象 </summary>
         private AndroidEntityView UniqueAndroidConstructorsView = null;
 
 
@@ -49,9 +54,7 @@ namespace Core.TestingKit.App.Android
         /// </summary>
         public AndroidPuppeteer(AndroidDriver<AndroidElement> androidDriver)
         {
-
             AndroidDriver = androidDriver;
-
         }
 
 
@@ -70,7 +73,8 @@ namespace Core.TestingKit.App.Android
 
                 catch (Exception err)
                 {
-                    LogServe.Error($"Error:: 构建系统组件异常:: { err.Message }"); 
+                    LogServe.Error($"Error:: 构建系统组件异常:: { err.Message }");
+
                     throw new AndroidcConstructorsSystemException();
                 }
             }
@@ -95,6 +99,7 @@ namespace Core.TestingKit.App.Android
                 catch (Exception err)
                 {
                     LogServe.Error($"Error:: 构建屏幕组件异常:: { err.Message }");
+
                     throw new AndroidcConstructorsViewException();
                 }
             }
@@ -117,6 +122,7 @@ namespace Core.TestingKit.App.Android
             catch (Exception err)
             {
                 LogServe.Error($"Error:: 构建功能组件异常:: { err.Message }");
+
                 throw new AndroidcConstructorsModuleException();
             }
         }

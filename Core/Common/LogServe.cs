@@ -16,10 +16,11 @@
  */
 
 
-using NLog;
 using System;
-using Core.Common.ICommon;
-using Core.Common.ErrorDefined;
+
+using NLog;
+
+using Core.Common.ErrorCustom;
 
 
 namespace Core.Common.Log
@@ -28,7 +29,7 @@ namespace Core.Common.Log
     /// <summary>
     /// 日志服务
     /// </summary>
-    public class LogServe : ILogServe
+    public class LogServe
     {
 
         /// <summary> 类实例 </summary>
@@ -37,7 +38,7 @@ namespace Core.Common.Log
         /// <summary> 线程锁 </summary>
         private static readonly object ThreadLock = new object();
 
-        /// <summary> 服务核心 </summary>
+        /// <summary> 输出核心 </summary>
         private readonly Logger LogServeCore = LogManager.GetCurrentClassLogger();
 
         /// <summary> 访问器 </summary>
@@ -58,9 +59,7 @@ namespace Core.Common.Log
         /// </summary>
         private LogServe()
         {
-
             // CODE TODO
-
         }
 
 
@@ -72,8 +71,8 @@ namespace Core.Common.Log
         {
             try
             {
-                LogServeCore.Debug(message);
                 Console.WriteLine(message);
+                LogServeCore.Debug(message);
             }
 
             catch (Exception err)
@@ -91,8 +90,8 @@ namespace Core.Common.Log
         {
             try
             {
-                LogServeCore.Info(message);
                 Console.WriteLine(message);
+                LogServeCore.Info(message);
             }
 
             catch (Exception err)
@@ -110,8 +109,8 @@ namespace Core.Common.Log
         {
             try
             {
-                LogServeCore.Error(message);
                 Console.WriteLine(message);
+                LogServeCore.Error(message);
             }
 
             catch (Exception err)
@@ -129,8 +128,8 @@ namespace Core.Common.Log
         {
             try
             {
-                LogServeCore.Warn(message);
                 Console.WriteLine(message);
+                LogServeCore.Warn(message);
             }
 
             catch (Exception err)
@@ -148,8 +147,8 @@ namespace Core.Common.Log
         {
             try
             {
-                LogServeCore.Fatal(message);
                 Console.WriteLine(message);
+                LogServeCore.Fatal(message);
             }
 
             catch (Exception err)
@@ -166,11 +165,9 @@ namespace Core.Common.Log
         /// <param name="errName"> Exception 等级标识 </param>
         public void LoggingSystemException(Exception err, string errName)
         {
-
             LogServeCore.Error($"日志服务 LogServer 输出 {errName} 等级日志时，捕获了一个异常:: { err.Message }");
 
-            throw new LogServeOutputException(err.Message);
-
+            throw new LogServeOutputException();
         }
 
     }

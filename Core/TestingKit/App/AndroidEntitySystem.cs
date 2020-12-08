@@ -18,8 +18,10 @@
 
 using System;
 using System.IO;
-using Core.Common.Log;
+
 using OpenQA.Selenium.Appium.Android;
+
+using Core.Common.Log;
 
 
 namespace Core.TestingKit.App.Android
@@ -43,9 +45,7 @@ namespace Core.TestingKit.App.Android
         /// </summary>
         public AndroidEntitySystem(AndroidDriver<AndroidElement> androidDriver)
         {
-
             AndroidDriver = androidDriver;
-
         }
 
 
@@ -58,7 +58,7 @@ namespace Core.TestingKit.App.Android
             {
                 AndroidDriver.Quit();
 
-                LogServe.Info("安卓驱动已被销毁");
+                LogServe.Info("安卓驱动完成销毁");
             }
 
             catch (Exception err)
@@ -70,11 +70,12 @@ namespace Core.TestingKit.App.Android
 
         /// <summary>
         /// 打开应用程序
+        /// <para>注解1:: 如果打开的带有"首次启动页"的应用程序可能会导致报错，因为启动页的Activity不是我们指定的Activity</para>
         /// </summary>
         /// <param name="appPackage">应用程序包名</param>
         /// <param name="appActivity">应用程序启动名</param>
         /// <param name="logOutput"> 是否打印执行日志 </param>
-        public void OpenApp(string appPackage, string appActivity, bool logOutput = true)
+        public void AppOpen(string appPackage, string appActivity, bool logOutput = true)
         {
             try
             {
@@ -129,27 +130,6 @@ namespace Core.TestingKit.App.Android
             catch (Exception err)
             {
                 LogServe.Error($"Error:: 卸载应用程序异常:: { err.Message }"); throw;
-            }
-        }
-
-
-        /// <summary>
-        /// 启动应用程序
-        /// </summary>
-        /// <param name="appActivity"> 应用程序启动名 </param>
-        /// <param name="logOutput"> 是否打印执行日志 </param>
-        public void AppStart(string appActivity, bool logOutput = true)
-        {
-            try
-            {
-                AndroidDriver.ActivateApp(appActivity);
-
-                if (logOutput) LogServe.Info($"启动应用程序，启动名为 => [{appActivity}]");
-            }
-
-            catch (Exception err)
-            {
-                LogServe.Error($"Error:: 启动应用程序异常:: { err.Message }"); throw;
             }
         }
 
@@ -265,13 +245,13 @@ namespace Core.TestingKit.App.Android
         /// <param name="appPackage"> 应用程序包名 </param>
         /// <param name="logOutput"> 是否打印执行日志 </param>
         /// <returns> 布尔值 </returns>
-        public bool IsAppInstalled(string appPackage, bool logOutput = true)
+        public bool AppIsInstalled(string appPackage, bool logOutput = true)
         {
             try
             {   
                 bool appInstallType = AndroidDriver.IsAppInstalled(appPackage);
 
-                if (logOutput) LogServe.Info($"应用程序包[{appPackage}]是否已安装 => [{appInstallType}]");
+                if (logOutput) LogServe.Info($"判断应用程序包[{appPackage}]是否已安装 => [{appInstallType}]");
                 return appInstallType;
             }
 

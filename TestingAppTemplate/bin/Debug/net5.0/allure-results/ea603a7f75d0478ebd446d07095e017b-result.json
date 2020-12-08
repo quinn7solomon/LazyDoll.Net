@@ -1,0 +1,81 @@
+{
+  "uuid": "1384383a-5d01-405d-a6ef-d2f17176a768-tr-0-1004",
+  "historyId": "TestingAppTemplate.Case.Case01Template.Test03CalculatorAddition(4,5)",
+  "fullName": "TestingAppTemplate.Case.Case01Template.Test03CalculatorAddition(4,5)",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-8EPUUAL"
+    },
+    {
+      "name": "testClass",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "testMethod",
+      "value": "Test03CalculatorAddition"
+    },
+    {
+      "name": "package",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "suite",
+      "value": "谷歌原生系统测试示例"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    }
+  ],
+  "links": [],
+  "name": "Test03CalculatorAddition(4,5)",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "系统原生计算器计算加法\n",
+  "steps": [
+    {
+      "name": "Test03CalculatorAddition(4,5)",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "5fe1d54fd07b4fd687f81ee4b369958d-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1607415038615,
+      "stop": 1607415044938
+    }
+  ],
+  "attachments": [],
+  "parameters": [
+    {
+      "name": "Param #0",
+      "value": "4"
+    },
+    {
+      "name": "Param #1",
+      "value": "5"
+    }
+  ],
+  "start": 1607415038615,
+  "stop": 1607415044938
+}

@@ -14,14 +14,14 @@ namespace Test
                 PlatformName = "Android",
                 PlatformVersion = "8.1.0",
                 AutomationName = "UiAutomator2",
-                DeviceName = "Android Device",
+/*              DeviceName = "Android Device",
                 AppPath = @"F:\CsharpCode\DollCookbook\AppTesting-TanDu\apk\tandu.apk",
                 AppPackage = "com.ylyread.xs",
-                AppActivity = "com.wxreader.com.activity.SplashActivity",
+                AppActivity = "com.wxreader.com.activity.SplashActivity",      */
                 NoReset = true
             };
 
-            AndroidDriver<AndroidElement> AndroidDriver = new AndroidDriverCore(DriverConfig).StartUniqueDriver();
+            AndroidDriver<AndroidElement> AndroidDriver = new AndroidDriverCore(DriverConfig).StartEngine();
             AndroidPuppeteer AndroidPuppeteer = new AndroidPuppeteer(AndroidDriver);
 
             AndroidEntitySystem AndroidConstructorsSystem = AndroidPuppeteer.System();
@@ -33,31 +33,11 @@ namespace Test
                 El = "com.ylyread.xs:id/imageview",
                 Id = "2",
                 PageName = "首页",
-                ElementName = "书城页icon",
+                WidgetName = "书城页icon",
             });
 
-            AndroidEntityWidget Button2 = AndroidPuppeteer.Widget(new ElementStructure
-            {
-                By = "id",
-                El = "com.ylyread.xs:id/imageview",
-                Id = "4",
-                PageName = "首页",
-                ElementName = "我的页icon",
-            });
-
-            AndroidConstructorsView.SwipeDown();
-            AndroidConstructorsView.SwipeDown();
-            AndroidConstructorsView.SwipeLeft();
-            AndroidConstructorsView.SwipeLeft();
-            AndroidConstructorsView.SwipeRight();
-            AndroidConstructorsView.SwipeRight();
-            AndroidConstructorsView.SwipeUp();
-
-            Button1.Tap();
-            Button2.Tap();
-            Button1.Tap();
-            Button2.Tap();
-            Button1.Tap();
+            AndroidConstructorsSystem.AppOpen("com.ylyread.xs", "com.wxreader.com.activity.SplashActivity");
+            AndroidConstructorsSystem.AppIsInstalled("com.ylyread.xs");
 
             AndroidConstructorsSystem.Quit();
         }
