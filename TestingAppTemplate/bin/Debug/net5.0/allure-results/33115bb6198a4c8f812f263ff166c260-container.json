@@ -1,0 +1,76 @@
+{
+  "uuid": "24a318c0-85a7-4a9e-8934-c5024c6fb00f-tc-0-1000",
+  "name": "TestingAppTemplate.Case.Case01Template.Test04AnalogDialing",
+  "children": [
+    "0a57d4ff-1559-483f-bea8-faa9ea146afa-tr-0-1007"
+  ],
+  "befores": [
+    {
+      "name": "OneTimeSetUp",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607486307297,
+      "stop": 1607486307297
+    },
+    {
+      "name": "SetUp",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607486307297,
+      "stop": 1607486307297
+    }
+  ],
+  "afters": [
+    {
+      "name": "TearDown",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607486307297,
+      "stop": 1607486307297
+    },
+    {
+      "name": "OneTimeTearDown",
+      "status": "none",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "It's not possible to get status of OneTimeTearDown",
+        "trace": "See Allure.NUnit wiki"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1607486307297,
+      "stop": 1607486307297
+    }
+  ],
+  "links": [],
+  "start": 1607486297036,
+  "stop": 1607486307299
+}

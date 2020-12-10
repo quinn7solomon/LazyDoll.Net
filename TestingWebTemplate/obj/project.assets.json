@@ -72,6 +72,18 @@
           "lib/netstandard2.0/SeleniumExtras.PageObjects.dll": {}
         }
       },
+      "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.10.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {}
+        }
+      },
       "Microsoft.CodeCoverage/16.8.3": {
         "type": "package",
         "compile": {
@@ -471,7 +483,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NLog/4.7.5": {
+      "NLog/4.7.6": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NLog.dll": {}
@@ -480,11 +492,11 @@
           "lib/netstandard2.0/NLog.dll": {}
         }
       },
-      "NLog.Config/4.7.5": {
+      "NLog.Config/4.7.6": {
         "type": "package",
         "dependencies": {
-          "NLog": "4.7.5",
-          "NLog.Schema": "4.7.5"
+          "NLog": "4.7.6",
+          "NLog.Schema": "4.7.6"
         },
         "contentFiles": {
           "contentFiles/any/any/_._": {
@@ -494,7 +506,7 @@
           }
         }
       },
-      "NLog.Schema/4.7.5": {
+      "NLog.Schema/4.7.6": {
         "type": "package",
         "contentFiles": {
           "contentFiles/any/any/_._": {
@@ -622,6 +634,30 @@
         },
         "runtime": {
           "lib/netstandard2.0/WebDriver.dll": {}
+        }
+      },
+      "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {
+        "type": "package",
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "Selenium.WebDriver.GeckoDriver/0.28.0": {
+        "type": "package",
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "Selenium.WebDriverBackedSelenium/3.141.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.141.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Selenium.WebDriverBackedSelenium.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Selenium.WebDriverBackedSelenium.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -1397,11 +1433,19 @@
           "Allure.Commons": "3.5.0.4",
           "Appium.WebDriver": "4.2.1",
           "Castle.Core": "4.4.1",
-          "NLog": "4.7.5",
-          "NLog.Config": "4.7.5",
+          "DotNetSeleniumExtras.PageObjects": "3.11.0",
+          "DotNetSeleniumExtras.WaitHelpers": "3.11.0",
+          "NLog": "4.7.6",
+          "NLog.Config": "4.7.6",
+          "NUnit.Allure": "1.0.11",
+          "NUnit.Console": "3.11.1",
+          "NUnit.Extension.NUnitProjectLoader": "3.6.0",
           "Newtonsoft.Json": "12.0.3",
           "Selenium.Support": "3.141.0",
-          "Selenium.WebDriver": "3.141.0"
+          "Selenium.WebDriver": "3.141.0",
+          "Selenium.WebDriver.ChromeDriver": "87.0.4280.8800",
+          "Selenium.WebDriver.GeckoDriver": "0.28.0",
+          "Selenium.WebDriverBackedSelenium": "3.141.0"
         },
         "compile": {
           "bin/placeholder/Core.dll": {}
@@ -1483,6 +1527,21 @@
         "lib/net40/SeleniumExtras.PageObjects.dll",
         "lib/net45/SeleniumExtras.PageObjects.dll",
         "lib/netstandard2.0/SeleniumExtras.PageObjects.dll"
+      ]
+    },
+    "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+      "sha512": "xc6jVVl5ymgk3ZNWnC/KHxkEup1QpnwYbrwF+NQoCOGERsD8YMlLwmsX4lGhLXCLo/YQTRTIwlKCN9E/doGUNg==",
+      "type": "package",
+      "path": "dotnetseleniumextras.waithelpers/3.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
+        "dotnetseleniumextras.waithelpers.nuspec",
+        "lib/net35/SeleniumExtras.WaitHelpers.dll",
+        "lib/net40/SeleniumExtras.WaitHelpers.dll",
+        "lib/net45/SeleniumExtras.WaitHelpers.dll",
+        "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll"
       ]
     },
     "Microsoft.CodeCoverage/16.8.3": {
@@ -2079,10 +2138,10 @@
         "packageIcon.png"
       ]
     },
-    "NLog/4.7.5": {
-      "sha512": "1Udzim+UwoAGk0vW6T2rEBXJq1COvqTuE+4NFj2zHytuX1WOu+1Yes1qABG1IJOA5V3OMilIufUU1Ha9T0rrzQ==",
+    "NLog/4.7.6": {
+      "sha512": "mVYfNsZk6HY26/S/T3vVd2RS/1GySaeNh6bjP8uE7mKAdTENlRycQr7S4FC+I//QflXl/D/HEEugE47BDxQ5wA==",
       "type": "package",
-      "path": "nlog/4.7.5",
+      "path": "nlog/4.7.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2108,35 +2167,35 @@
         "lib/wp8/NLog.xml",
         "lib/xamarinios10/NLog.dll",
         "lib/xamarinios10/NLog.xml",
-        "nlog.4.7.5.nupkg.sha512",
+        "nlog.4.7.6.nupkg.sha512",
         "nlog.nuspec"
       ]
     },
-    "NLog.Config/4.7.5": {
-      "sha512": "rUW2e2X0q5PDDlxVa/ooH8jdA9ubL89dNW+Z8HPdR6qvWAPgLIpQvIeRSJC/yicuI/fSX+xZy9EzNZZAlTVgwA==",
+    "NLog.Config/4.7.6": {
+      "sha512": "4rrKtrgMZ4w9dyk/5aVISyGsfdcd+STumZONKouJFlJ3cvWLhw5cLe7QpqE/8SwW4E5Lr3xCqJA9e5QPCVMZNw==",
       "type": "package",
-      "path": "nlog.config/4.7.5",
+      "path": "nlog.config/4.7.6",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "content/NLog.config",
         "contentFiles/any/any/NLog.config",
-        "nlog.config.4.7.5.nupkg.sha512",
+        "nlog.config.4.7.6.nupkg.sha512",
         "nlog.config.nuspec",
         "tools/Install.ps1"
       ]
     },
-    "NLog.Schema/4.7.5": {
-      "sha512": "UgzboQ9sJyonVd8XXqQ3Zzea4IPz5k7nNv6qdU73HpJ43fHIkveWPmIMtZWKS8YJrMxlGso2Sk/oE6r/ZyiOXg==",
+    "NLog.Schema/4.7.6": {
+      "sha512": "wHlakqgco/grSxtY6g2kq0o3QMmpTXgV6kBGXn9CkYxOzoVxMQkB/p5ZoayjOBvWbOUsWqpppo0ETaa/nysg2Q==",
       "type": "package",
-      "path": "nlog.schema/4.7.5",
+      "path": "nlog.schema/4.7.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "content/NLog.xsd",
         "contentFiles/any/any/NLog.xsd",
-        "nlog.schema.4.7.5.nupkg.sha512",
+        "nlog.schema.4.7.6.nupkg.sha512",
         "nlog.schema.nuspec"
       ]
     },
@@ -2393,6 +2452,60 @@
         "lib/netstandard2.0/WebDriver.xml",
         "selenium.webdriver.3.141.0.nupkg.sha512",
         "selenium.webdriver.nuspec"
+      ]
+    },
+    "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {
+      "sha512": "7bgZ2QNhYFofxDdlGVfUVgNJ6B785u/UeoFjEzB7O2EiggPitosPqqB/TG0KpJwvqgQTs+nNJus3rn9yNMHa1A==",
+      "type": "package",
+      "path": "selenium.webdriver.chromedriver/87.0.4280.8800",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/DefinePropertiesChromeDriver.targets",
+        "build/Selenium.WebDriver.ChromeDriver.targets",
+        "driver/linux64/chromedriver",
+        "driver/mac64/chromedriver",
+        "driver/win32/chromedriver.exe",
+        "nupkg-icon.png",
+        "selenium.webdriver.chromedriver.87.0.4280.8800.nupkg.sha512",
+        "selenium.webdriver.chromedriver.nuspec"
+      ]
+    },
+    "Selenium.WebDriver.GeckoDriver/0.28.0": {
+      "sha512": "vW4OyxJAIQxZSjPxKtOlLClA2gSBvZUvzSdWTXeKJCXbgRyefdCaYRSEkaGqwxz7Ck+vBTXeRxd7v7LS6uoUfQ==",
+      "type": "package",
+      "path": "selenium.webdriver.geckodriver/0.28.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/DefinePropertiesGeckoDriver.targets",
+        "build/Selenium.WebDriver.GeckoDriver.targets",
+        "driver/linux64/geckodriver",
+        "driver/mac64/geckodriver",
+        "driver/win32/geckodriver.exe",
+        "driver/win64/geckodriver.exe",
+        "nupkg-icon.png",
+        "selenium.webdriver.geckodriver.0.28.0.nupkg.sha512",
+        "selenium.webdriver.geckodriver.nuspec"
+      ]
+    },
+    "Selenium.WebDriverBackedSelenium/3.141.0": {
+      "sha512": "pCSxJq4IJ/CqbvtNarxudtVl3tULJU958ZX795nimJF+44djMIa2kj7c8MEaXLscQyRl43XEV2JWKW8iVj10Ag==",
+      "type": "package",
+      "path": "selenium.webdriverbackedselenium/3.141.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/Selenium.WebDriverBackedSelenium.dll",
+        "lib/net35/Selenium.WebDriverBackedSelenium.xml",
+        "lib/net40/Selenium.WebDriverBackedSelenium.dll",
+        "lib/net40/Selenium.WebDriverBackedSelenium.xml",
+        "lib/net45/Selenium.WebDriverBackedSelenium.dll",
+        "lib/net45/Selenium.WebDriverBackedSelenium.xml",
+        "lib/netstandard2.0/Selenium.WebDriverBackedSelenium.dll",
+        "lib/netstandard2.0/Selenium.WebDriverBackedSelenium.xml",
+        "selenium.webdriverbackedselenium.3.141.0.nupkg.sha512",
+        "selenium.webdriverbackedselenium.nuspec"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -5027,8 +5140,6 @@
       "Core >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.8.3",
       "NUnit >= 3.12.0",
-      "NUnit.Allure >= 1.0.11",
-      "NUnit.Console >= 3.11.1",
       "NUnit3TestAdapter >= 3.17.0"
     ]
   },
@@ -5088,14 +5199,6 @@
             "target": "Package",
             "version": "[3.12.0, )"
           },
-          "NUnit.Allure": {
-            "target": "Package",
-            "version": "[1.0.11, )"
-          },
-          "NUnit.Console": {
-            "target": "Package",
-            "version": "[3.11.1, )"
-          },
           "NUnit3TestAdapter": {
             "target": "Package",
             "version": "[3.17.0, )"
@@ -5116,7 +5219,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

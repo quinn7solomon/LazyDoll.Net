@@ -39,7 +39,7 @@ namespace TestingAppTemplate.Case
     [AllureNUnit]
     [AllureSuite("谷歌原生系统测试示例")]
     [AllureSeverity(SeverityLevel.critical)]
-    class Case01Template
+    public class Case01Template
     {
 
         /// <summary> 日志服务 </summary>
@@ -57,29 +57,33 @@ namespace TestingAppTemplate.Case
         /// <summary> 安卓驱动 </summary>
         AndroidDriver<AndroidElement> AndroidDriver;
 
-        /// <summary> 操作模型:: 谷歌浏览器 </summary>
-        ModelChrome ModelChrome;
-
         /// <summary> 操作模型:: 原生系统 </summary>
-        ModelSystem ModelSystem;
+        ModelSystem ModelSystemCore;
 
         /// <summary> 操作模型:: 计算器 </summary>
-        ModelCalculator ModelCalculator;
+        ModelCalculator ModelCalculatorCore;
+
+        /// <summary> 操作模型:: 谷歌浏览器 </summary>
+        ModelChrome ModelChromeCore;
+
+        /// <summary> 操作模型:: 拨打电话 </summary>
+        ModelPhone ModelPhoneCore;
 
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
             AndroidDriver = new AndroidDriverCore(DriverConfiguration).StartEngine();
-            ModelChrome = new ModelChrome(AndroidDriver);
-            ModelSystem = new ModelSystem(AndroidDriver);
-            ModelCalculator = new ModelCalculator(AndroidDriver);
+            ModelChromeCore = new ModelChrome(AndroidDriver);
+            ModelSystemCore = new ModelSystem(AndroidDriver);
+            ModelCalculatorCore = new ModelCalculator(AndroidDriver);
+            ModelPhoneCore = new ModelPhone(AndroidDriver);
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            ModelSystem.System.Quit();
+            ModelSystemCore.System.Quit();
         }
 
         [SetUp]
@@ -91,21 +95,22 @@ namespace TestingAppTemplate.Case
         [TearDown]
         public void TearDown()
         {
-            ModelSystem.View.PressKeyHome(false);
+            ModelSystemCore.View.PressKeyHome(false);
         }
 
 
         /// <summary>
         /// 通过应用程序列表搜索框搜索 Calculator
         /// </summary>
+        [AllureSeverity(SeverityLevel.critical)]
         [Test(Description = "通过应用程序列表搜索框搜索 Calculator")]
         public void Test01SearchAppsCalculator()
         {
             try
             {
-                ModelSystem.UpArrows.Tap();
-                ModelSystem.AppsSearchInput.SendKey("Calculator");
-                string appName = ModelSystem.AppsAppIconList.GetAttributeText(0);
+                ModelSystemCore.UpArrows.Tap();
+                ModelSystemCore.AppsSearchInput.SendKey("Calculator");
+                string appName = ModelSystemCore.AppsAppIconList.GetAttributeText(0);
                 bool assert = string.Equals(appName, "Calculator");
 
                 LogServe.Info($"预期字段='Calculator', 结果字段='{appName}'");
@@ -120,17 +125,18 @@ namespace TestingAppTemplate.Case
         /// 打开系统原生计算器并计算加法
         /// </summary>
         [Sequential]
+        [AllureSeverity(SeverityLevel.critical)]
         [Test(Description = "打开系统原生计算器并计算加法")]
         public void Test02CalculatorAddition([Values(2, 4, 6)] int a, [Values(3, 5, 7)] int b)
         {
             try
             {
-                ModelCalculator.Open();
-                ModelCalculator.VirtualButtonsNumber(a).Tap();
-                ModelCalculator.VirtualButtonsOpAdd.Tap();
-                ModelCalculator.VirtualButtonsNumber(b).Tap();
-                ModelCalculator.VirtualButtonsEq.Tap();
-                string result = ModelCalculator.ComputationResult.GetAttributeText();
+                ModelCalculatorCore.Open();
+                ModelCalculatorCore.VirtualButtonsNumber(a).Tap();
+                ModelCalculatorCore.VirtualButtonsOpAdd.Tap();
+                ModelCalculatorCore.VirtualButtonsNumber(b).Tap();
+                ModelCalculatorCore.VirtualButtonsEq.Tap();
+                string result = ModelCalculatorCore.ComputationResult.GetAttributeText();
 
                 LogServe.Info($"预期字段='{a + b}', 结果字段='{result}'");
                 Assert.AreEqual(result, (a + b).ToString());
@@ -143,32 +149,59 @@ namespace TestingAppTemplate.Case
         /// <summary>
         /// 启动谷歌浏览器并搜索百度URL
         /// </summary>
+        [AllureSeverity(SeverityLevel.critical)]
         [Test(Description = "启动谷歌浏览器并搜索百度URL")]
         public void Test03GoogleBrowserBaiduSearch()
         {
             try
             {
-                ModelSystem.UpArrows.Tap();
-                ModelSystem.AppsSearchInput.SendKey("Chrome");
-                ModelSystem.AppsAppIconList.Tap();
+                ModelSystemCore.UpArrows.Tap();
+                ModelSystemCore.AppsSearchInput.SendKey("Chrome");
+                ModelSystemCore.AppsAppIconList.Tap();
 
                 // 如果初次启动谷歌浏览器，就跳过必要选项，
-                if (ModelChrome.GooglePolicyConsentOk.IsInPage())
+                if (ModelChromeCore.GooglePolicyConsentOk.IsInPage())
                 {
-                    ModelChrome.GooglePolicyConsentOk.Tap();
-                    ModelChrome.GoogleNoThanks.Tap();
+                    ModelChromeCore.GooglePolicyConsentOk.Tap();
+                    ModelChromeCore.GoogleNoThanks.Tap();
                 }
 
-                ModelChrome.HomeSearchInputBox.SendKey("www.baidu.com");
-                ModelChrome.View.PressKeyEnter();
+                ModelChromeCore.HomeSearchInputBox.SendKey("www.baidu.com");
+                ModelChromeCore.View.PressKeyEnter();
 
                 // 如果弹出警告框则点击允许
-                if (ModelChrome.WarningWindowAllow.IsInPage())
+                if (ModelChromeCore.WarningWindowAllow.IsInPage())
                 {
-                    ModelChrome.WarningWindowAllow.Tap();
+                    ModelChromeCore.WarningWindowAllow.Tap();
                 }
 
+                ModelChromeCore.View.PressKeyBack();
+
                 // 该用例为流程用例，即运行到此已算跳过，断言恒为True
+                Assert.IsTrue(true);
+            }
+
+            catch (Exception) { Assert.IsTrue(false); }
+        }
+
+
+        /// <summary>
+        /// 模拟拨打电话后挂断
+        /// </summary>
+        [AllureSeverity(SeverityLevel.critical)]
+        [Test(Description = "模拟拨打电话后挂断")]
+        public void Test04AnalogDialing()
+        {
+            try
+            {
+                ModelPhoneCore.Open();
+                ModelPhoneCore.RedStartButton.Tap();
+                ModelPhoneCore.NumericKeys(1).Tap();
+                ModelPhoneCore.NumericKeys(8).Tap();
+                ModelPhoneCore.NumericKeys(8).Tap();
+                ModelPhoneCore.GreenCallButton.Tap();
+                ModelPhoneCore.HangPhoneButton.Tap();
+
                 Assert.IsTrue(true);
             }
 

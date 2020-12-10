@@ -1,7 +1,10 @@
-﻿
-using Core.TestingKit.App;
-using Core.TestingKit.App.Android;
-using OpenQA.Selenium.Appium.Android;
+﻿using System;
+
+using OpenQA.Selenium;
+
+using Core.Common;
+using Core.TestingKit.Web;
+
 
 namespace Test
 {
@@ -9,37 +12,31 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            DriverConfiguration DriverConfig = new DriverConfiguration
-            {
-                PlatformName = "Android",
-                PlatformVersion = "8.1.0",
-                AutomationName = "UiAutomator2",
-/*              DeviceName = "Android Device",
-                AppPath = @"F:\CsharpCode\DollCookbook\AppTesting-TanDu\apk\tandu.apk",
-                AppPackage = "com.ylyread.xs",
-                AppActivity = "com.wxreader.com.activity.SplashActivity",      */
-                NoReset = true
-            };
 
-            AndroidDriver<AndroidElement> AndroidDriver = new AndroidDriverCore(DriverConfig).StartEngine();
-            AndroidPuppeteer AndroidPuppeteer = new AndroidPuppeteer(AndroidDriver);
+            BrowserDriverCore DriverCore = BrowserDriverCore.Instance;
+            IWebDriver Driver = DriverCore.CreationChromeDriver();
 
-            AndroidEntitySystem AndroidConstructorsSystem = AndroidPuppeteer.System();
-            AndroidEntityView AndroidConstructorsView = AndroidPuppeteer.View();
+            BrowserPuppeteer Puppeteer = new BrowserPuppeteer(Driver);
 
-            AndroidEntityWidget Button1 = AndroidPuppeteer.Widget(new ElementStructure
+            BrowserEntitySystem System = Puppeteer.System();
+            BrowserEntityView View = Puppeteer.View();
+
+            BrowserEntityWidget button1 = Puppeteer.Widget(new ElementStructure
             {
                 By = "id",
-                El = "com.ylyread.xs:id/imageview",
-                Id = "2",
-                PageName = "首页",
-                WidgetName = "书城页icon",
+                El = "kw",
+                PageName = "百度",
+                WidgetName = "搜索框",
             });
+            View.WindowHandleRetrieval();
+            View.OpenWindow("http://www.hao123.com/");
+            View.OpenWindow("http://www.baidu.com/");
+            View.GoToWindow(0);
+            View.GoToWindow(1);
+            View.Close();
 
-            AndroidConstructorsSystem.AppOpen("com.ylyread.xs", "com.wxreader.com.activity.SplashActivity");
-            AndroidConstructorsSystem.AppIsInstalled("com.ylyread.xs");
+            button1.Tap();
 
-            AndroidConstructorsSystem.Quit();
         }
     }
 }

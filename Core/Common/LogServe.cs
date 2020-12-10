@@ -39,7 +39,7 @@ namespace Core.Common.Log
         private static readonly object ThreadLock = new object();
 
         /// <summary> 输出核心 </summary>
-        private readonly Logger LogServeCore = LogManager.GetCurrentClassLogger();
+        private readonly Logger LoggerOutputCore = LogManager.GetCurrentClassLogger();
 
         /// <summary> 访问器 </summary>
         public static LogServe Instance
@@ -72,12 +72,12 @@ namespace Core.Common.Log
             try
             {
                 Console.WriteLine(message);
-                LogServeCore.Debug(message);
+                LoggerOutputCore.Debug(message);
             }
 
             catch (Exception err)
             {
-                LoggingSystemException(err, "DEBUG");
+                LoggingSystemExceptionHandling(err, "DEBUG");
             }
         }
 
@@ -91,12 +91,12 @@ namespace Core.Common.Log
             try
             {
                 Console.WriteLine(message);
-                LogServeCore.Info(message);
+                LoggerOutputCore.Info(message);
             }
 
             catch (Exception err)
             {
-                LoggingSystemException(err, "INFO");
+                LoggingSystemExceptionHandling(err, "INFO");
             }
         }
 
@@ -110,12 +110,12 @@ namespace Core.Common.Log
             try
             {
                 Console.WriteLine(message);
-                LogServeCore.Error(message);
+                LoggerOutputCore.Error(message);
             }
 
             catch (Exception err)
             {
-                LoggingSystemException(err, "ERROR");
+                LoggingSystemExceptionHandling(err, "ERROR");
             }
         }
 
@@ -129,12 +129,12 @@ namespace Core.Common.Log
             try
             {
                 Console.WriteLine(message);
-                LogServeCore.Warn(message);
+                LoggerOutputCore.Warn(message);
             }
 
             catch (Exception err)
             {
-                LoggingSystemException(err, "WARN");
+                LoggingSystemExceptionHandling(err, "WARN");
             }
         }
 
@@ -148,12 +148,12 @@ namespace Core.Common.Log
             try
             {
                 Console.WriteLine(message);
-                LogServeCore.Fatal(message);
+                LoggerOutputCore.Fatal(message);
             }
 
             catch (Exception err)
             {
-                LoggingSystemException(err, "FATAL");
+                LoggingSystemExceptionHandling(err, "FATAL");
             }
         }
 
@@ -163,9 +163,9 @@ namespace Core.Common.Log
         /// </summary>
         /// <param name="err"> Exception 对象 </param>
         /// <param name="errName"> Exception 等级标识 </param>
-        public void LoggingSystemException(Exception err, string errName)
+        public void LoggingSystemExceptionHandling(Exception err, string errName)
         {
-            LogServeCore.Error($"日志服务 LogServer 输出 {errName} 等级日志时，捕获了一个异常:: { err.Message }");
+            LoggerOutputCore.Error($"日志服务 LogServer 输出 {errName} 等级日志时，捕获了一个异常:: { err.Message }");
 
             throw new LogServeOutputException();
         }

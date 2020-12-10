@@ -73,6 +73,17 @@
           }
         }
       },
+      "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+        "dependencies": {
+          "Selenium.WebDriver": "3.141.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SeleniumExtras.WaitHelpers.dll": {
+            "assemblyVersion": "3.11.0.0",
+            "fileVersion": "3.11.0.0"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/2.0.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.Win32.SystemEvents/4.5.0": {
@@ -115,21 +126,21 @@
           }
         }
       },
-      "NLog/4.7.5": {
+      "NLog/4.7.6": {
         "runtime": {
           "lib/netstandard2.0/NLog.dll": {
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.7.5.12092"
+            "fileVersion": "4.7.6.12219"
           }
         }
       },
-      "NLog.Config/4.7.5": {
+      "NLog.Config/4.7.6": {
         "dependencies": {
-          "NLog": "4.7.5",
-          "NLog.Schema": "4.7.5"
+          "NLog": "4.7.6",
+          "NLog.Schema": "4.7.6"
         }
       },
-      "NLog.Schema/4.7.5": {},
+      "NLog.Schema/4.7.6": {},
       "NUnit/3.12.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.0"
@@ -192,6 +203,19 @@
         },
         "runtime": {
           "lib/netstandard2.0/WebDriver.dll": {
+            "assemblyVersion": "3.141.0.0",
+            "fileVersion": "3.141.0.0"
+          }
+        }
+      },
+      "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {},
+      "Selenium.WebDriver.GeckoDriver/0.28.0": {},
+      "Selenium.WebDriverBackedSelenium/3.141.0": {
+        "dependencies": {
+          "Selenium.WebDriver": "3.141.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Selenium.WebDriverBackedSelenium.dll": {
             "assemblyVersion": "3.141.0.0",
             "fileVersion": "3.141.0.0"
           }
@@ -573,13 +597,19 @@
           "Allure.Commons": "3.5.0.4",
           "Appium.WebDriver": "4.2.1",
           "Castle.Core": "4.4.1",
-          "NLog": "4.7.5",
-          "NLog.Config": "4.7.5",
+          "DotNetSeleniumExtras.PageObjects": "3.11.0",
+          "DotNetSeleniumExtras.WaitHelpers": "3.11.0",
+          "NLog": "4.7.6",
+          "NLog.Config": "4.7.6",
           "NUnit.Allure": "1.0.11",
           "NUnit.Console": "3.11.1",
+          "NUnit.Extension.NUnitProjectLoader": "3.6.0",
           "Newtonsoft.Json": "12.0.3",
           "Selenium.Support": "3.141.0",
-          "Selenium.WebDriver": "3.141.0"
+          "Selenium.WebDriver": "3.141.0",
+          "Selenium.WebDriver.ChromeDriver": "87.0.4280.8800",
+          "Selenium.WebDriver.GeckoDriver": "0.28.0",
+          "Selenium.WebDriverBackedSelenium": "3.141.0"
         },
         "runtime": {
           "Core.dll": {}
@@ -620,6 +650,13 @@
       "sha512": "sha512-DJCLQ3beq1fzqpeQ5jTZwDqmzbOD2Xxsb/jCyShYam88CNwGGn5aBBqu4LVSj0sy0Ai76OauQQncYlC48VvQUQ==",
       "path": "dotnetseleniumextras.pageobjects/3.11.0",
       "hashPath": "dotnetseleniumextras.pageobjects.3.11.0.nupkg.sha512"
+    },
+    "DotNetSeleniumExtras.WaitHelpers/3.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xc6jVVl5ymgk3ZNWnC/KHxkEup1QpnwYbrwF+NQoCOGERsD8YMlLwmsX4lGhLXCLo/YQTRTIwlKCN9E/doGUNg==",
+      "path": "dotnetseleniumextras.waithelpers/3.11.0",
+      "hashPath": "dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/2.0.0": {
       "type": "package",
@@ -663,26 +700,26 @@
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
-    "NLog/4.7.5": {
+    "NLog/4.7.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1Udzim+UwoAGk0vW6T2rEBXJq1COvqTuE+4NFj2zHytuX1WOu+1Yes1qABG1IJOA5V3OMilIufUU1Ha9T0rrzQ==",
-      "path": "nlog/4.7.5",
-      "hashPath": "nlog.4.7.5.nupkg.sha512"
+      "sha512": "sha512-mVYfNsZk6HY26/S/T3vVd2RS/1GySaeNh6bjP8uE7mKAdTENlRycQr7S4FC+I//QflXl/D/HEEugE47BDxQ5wA==",
+      "path": "nlog/4.7.6",
+      "hashPath": "nlog.4.7.6.nupkg.sha512"
     },
-    "NLog.Config/4.7.5": {
+    "NLog.Config/4.7.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rUW2e2X0q5PDDlxVa/ooH8jdA9ubL89dNW+Z8HPdR6qvWAPgLIpQvIeRSJC/yicuI/fSX+xZy9EzNZZAlTVgwA==",
-      "path": "nlog.config/4.7.5",
-      "hashPath": "nlog.config.4.7.5.nupkg.sha512"
+      "sha512": "sha512-4rrKtrgMZ4w9dyk/5aVISyGsfdcd+STumZONKouJFlJ3cvWLhw5cLe7QpqE/8SwW4E5Lr3xCqJA9e5QPCVMZNw==",
+      "path": "nlog.config/4.7.6",
+      "hashPath": "nlog.config.4.7.6.nupkg.sha512"
     },
-    "NLog.Schema/4.7.5": {
+    "NLog.Schema/4.7.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UgzboQ9sJyonVd8XXqQ3Zzea4IPz5k7nNv6qdU73HpJ43fHIkveWPmIMtZWKS8YJrMxlGso2Sk/oE6r/ZyiOXg==",
-      "path": "nlog.schema/4.7.5",
-      "hashPath": "nlog.schema.4.7.5.nupkg.sha512"
+      "sha512": "sha512-wHlakqgco/grSxtY6g2kq0o3QMmpTXgV6kBGXn9CkYxOzoVxMQkB/p5ZoayjOBvWbOUsWqpppo0ETaa/nysg2Q==",
+      "path": "nlog.schema/4.7.6",
+      "hashPath": "nlog.schema.4.7.6.nupkg.sha512"
     },
     "NUnit/3.12.0": {
       "type": "package",
@@ -767,6 +804,27 @@
       "sha512": "sha512-wPqzXO3f79DzqauTZSzLMKiaBCN0Z2Mv7KvWP+hnV6EL88zh/pJJnFtdIR1X5wa3hsTOpF/bBJs45rz7kArsiA==",
       "path": "selenium.webdriver/3.141.0",
       "hashPath": "selenium.webdriver.3.141.0.nupkg.sha512"
+    },
+    "Selenium.WebDriver.ChromeDriver/87.0.4280.8800": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7bgZ2QNhYFofxDdlGVfUVgNJ6B785u/UeoFjEzB7O2EiggPitosPqqB/TG0KpJwvqgQTs+nNJus3rn9yNMHa1A==",
+      "path": "selenium.webdriver.chromedriver/87.0.4280.8800",
+      "hashPath": "selenium.webdriver.chromedriver.87.0.4280.8800.nupkg.sha512"
+    },
+    "Selenium.WebDriver.GeckoDriver/0.28.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vW4OyxJAIQxZSjPxKtOlLClA2gSBvZUvzSdWTXeKJCXbgRyefdCaYRSEkaGqwxz7Ck+vBTXeRxd7v7LS6uoUfQ==",
+      "path": "selenium.webdriver.geckodriver/0.28.0",
+      "hashPath": "selenium.webdriver.geckodriver.0.28.0.nupkg.sha512"
+    },
+    "Selenium.WebDriverBackedSelenium/3.141.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pCSxJq4IJ/CqbvtNarxudtVl3tULJU958ZX795nimJF+44djMIa2kj7c8MEaXLscQyRl43XEV2JWKW8iVj10Ag==",
+      "path": "selenium.webdriverbackedselenium/3.141.0",
+      "hashPath": "selenium.webdriverbackedselenium.3.141.0.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",

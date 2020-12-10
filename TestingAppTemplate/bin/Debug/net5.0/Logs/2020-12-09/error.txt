@@ -1,0 +1,6 @@
+2020-12-09 11:13:11.0467 - Error || Error:: 元素结构对象解析函数异常:: 元素解析为空异常 
+2020-12-09 11:13:11.0467 - Error || Error:: 单击事件异常:: 元素解析为空异常 
+2020-12-09 11:45:33.8445 - Error || Error:: 单击事件异常:: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up 
+2020-12-09 11:45:33.9164 - Error || Error:: 构建屏幕组件异常:: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up 
+2020-12-09 11:50:57.3140 - Error || Error:: 元素结构对象解析函数异常:: 元素解析为空异常 
+2020-12-09 11:50:57.3140 - Error || Error:: 单击事件异常:: 元素解析为空异常 

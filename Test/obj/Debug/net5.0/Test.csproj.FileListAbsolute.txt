@@ -1,8 +1,3 @@
-F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.csprojAssemblyReference.cache
-F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.GeneratedMSBuildEditorConfig.editorconfig
-F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.AssemblyInfoInputs.cache
-F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.AssemblyInfo.cs
-F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.csproj.CoreCompileInputs.cache
 F:\LazyDoll.Net\Test\bin\Debug\net5.0\NLog.config
 F:\LazyDoll.Net\Test\bin\Debug\net5.0\Test.exe
 F:\LazyDoll.Net\Test\bin\Debug\net5.0\Test.deps.json
@@ -29,8 +24,15 @@ F:\LazyDoll.Net\Test\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.0\System.Dra
 F:\LazyDoll.Net\Test\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll
 F:\LazyDoll.Net\Test\bin\Debug\net5.0\Core.dll
 F:\LazyDoll.Net\Test\bin\Debug\net5.0\Core.pdb
+F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.csprojAssemblyReference.cache
+F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.GeneratedMSBuildEditorConfig.editorconfig
+F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.AssemblyInfoInputs.cache
+F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.AssemblyInfo.cs
+F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.csproj.CoreCompileInputs.cache
 F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.csproj.CopyComplete
 F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.dll
 F:\LazyDoll.Net\Test\obj\Debug\net5.0\ref\Test.dll
 F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.pdb
 F:\LazyDoll.Net\Test\obj\Debug\net5.0\Test.genruntimeconfig.cache
+F:\LazyDoll.Net\Test\bin\Debug\net5.0\Selenium.WebDriverBackedSelenium.dll
+F:\LazyDoll.Net\Test\bin\Debug\net5.0\SeleniumExtras.WaitHelpers.dll

@@ -1,0 +1,76 @@
+{
+  "uuid": "6609a946-695a-403f-a83b-4cc4f8d84cb8-tr-0-1001",
+  "historyId": "TestingAppTemplate.Case.Case01Template.Test01SearchAppsCalculator",
+  "fullName": "TestingAppTemplate.Case.Case01Template.Test01SearchAppsCalculator",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-8EPUUAL"
+    },
+    {
+      "name": "testClass",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "testMethod",
+      "value": "Test01SearchAppsCalculator"
+    },
+    {
+      "name": "package",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "suite",
+      "value": "谷歌原生系统测试示例"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    }
+  ],
+  "links": [],
+  "name": "Test01SearchAppsCalculator",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "  Expected: True\r\n  But was:  False\r\n",
+    "trace": "   at TestingAppTemplate.Case.Case01Template.Test01SearchAppsCalculator() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 115\r\n"
+  },
+  "stage": "finished",
+  "description": "通过应用程序列表搜索框搜索 Calculator\n",
+  "steps": [
+    {
+      "name": "Test01SearchAppsCalculator",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "  Expected: True\r\n  But was:  False\r\n",
+        "trace": "   at TestingAppTemplate.Case.Case01Template.Test01SearchAppsCalculator() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 115\r\n"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "d4eb8b3eb64b4c5d87dbced3b8f7a104-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1607483574467,
+      "stop": 1607483591171
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1607483574466,
+  "stop": 1607483591176
+}

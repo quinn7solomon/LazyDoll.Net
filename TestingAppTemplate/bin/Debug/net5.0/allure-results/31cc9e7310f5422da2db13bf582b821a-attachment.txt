@@ -1,0 +1,3 @@
+打开应用程序 => [Package:com.google.android.dialer | Activity:com.google.android.dialer.extensions.GoogleDialtactsActivity]
+Error:: 元素结构对象解析函数异常:: 元素解析为空异常
+Error:: 单击事件异常:: 元素解析为空异常

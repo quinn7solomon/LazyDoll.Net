@@ -1,0 +1,76 @@
+{
+  "uuid": "ba44f1a7-8dec-4f9b-8905-729af789957b-tr-0-1007",
+  "historyId": "TestingAppTemplate.Case.Case01Template.Test04AnalogDialing",
+  "fullName": "TestingAppTemplate.Case.Case01Template.Test04AnalogDialing",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-8EPUUAL"
+    },
+    {
+      "name": "testClass",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "testMethod",
+      "value": "Test04AnalogDialing"
+    },
+    {
+      "name": "package",
+      "value": "TestingAppTemplate.Case.Case01Template"
+    },
+    {
+      "name": "suite",
+      "value": "谷歌原生系统测试示例"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    }
+  ],
+  "links": [],
+  "name": "Test04AnalogDialing",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "  Expected: True\r\n  But was:  False\r\n",
+    "trace": "   at TestingAppTemplate.Case.Case01Template.Test04AnalogDialing() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 204\r\n"
+  },
+  "stage": "finished",
+  "description": "模拟拨打电话\n",
+  "steps": [
+    {
+      "name": "Test04AnalogDialing",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "  Expected: True\r\n  But was:  False\r\n",
+        "trace": "   at TestingAppTemplate.Case.Case01Template.Test04AnalogDialing() in F:\\LazyDoll.Net\\TestingAppTemplate\\Case\\Case01Template.cs:line 204\r\n"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "31cc9e7310f5422da2db13bf582b821a-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1607485839205,
+      "stop": 1607485857388
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1607485839205,
+  "stop": 1607485857388
+}

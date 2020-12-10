@@ -11,8 +11,6 @@
           "Core": "1.0.0",
           "Microsoft.NET.Test.Sdk": "16.5.0",
           "NUnit": "3.12.0",
-          "NUnit.Allure": "1.0.11",
-          "NUnit.Console": "3.11.1",
           "NUnit3TestAdapter": "3.16.1"
         },
         "runtime": {
@@ -991,6 +989,9 @@
           "Castle.Core": "4.4.1",
           "NLog": "4.7.5",
           "NLog.Config": "4.7.5",
+          "NUnit.Allure": "1.0.11",
+          "NUnit.Console": "3.11.1",
+          "NUnit.Extension.NUnitProjectLoader": "3.6.0",
           "Newtonsoft.Json": "12.0.3",
           "Selenium.Support": "3.141.0",
           "Selenium.WebDriver": "3.141.0"

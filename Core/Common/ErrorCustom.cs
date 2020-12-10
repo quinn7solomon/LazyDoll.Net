@@ -29,17 +29,17 @@ namespace Core.Common.ErrorCustom
     }
 
 
-    public class AndroidDriverException : ApplicationException
-    {
-        /// <summary> 安卓设备驱动异常 </summary>
-        public AndroidDriverException() : base("安卓设备驱动异常") { }
-    }
-
-
     public class ElementResolvesToEmptyException : ApplicationException
     {
         /// <summary> 元素解析为空异常 </summary>
         public ElementResolvesToEmptyException() : base("元素解析为空异常") { }
+    }
+
+
+    public class AndroidDriverException : ApplicationException
+    {
+        /// <summary> 安卓设备驱动异常 </summary>
+        public AndroidDriverException() : base("安卓设备驱动异常") { }
     }
 
 
@@ -61,6 +61,13 @@ namespace Core.Common.ErrorCustom
     {
         /// <summary> 安卓功能组件构建异常 </summary>
         public AndroidcConstructorsModuleException() : base("安卓功能组件构建异常") { }
+    }
+
+
+    public class CreationBrowserDriverException : ApplicationException
+    {
+        /// <summary> 创建浏览器驱动异常 </summary>
+        public CreationBrowserDriverException() : base("创建浏览器驱动异常") { }
     }
 
 }
