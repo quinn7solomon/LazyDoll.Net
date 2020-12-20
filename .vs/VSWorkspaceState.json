@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Core",
+    "\\Core\\bin\\Debug\\net5.0",
+    "\\Core\\bin\\Debug\\net5.0\\ref",
+    "\\Core\\Common"
   ],
+  "SelectedNode": "\\Core\\Common\\ElementStructure.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -1,7 +1,0 @@
-打开应用程序 => [Package:com.google.android.dialer | Activity:com.google.android.dialer.extensions.GoogleDialtactsActivity]
-单击事件 => 拨打电话模型 => 红色操作键
-单击事件 => 拨打电话模型 => 数字键.1
-单击事件 => 拨打电话模型 => 数字键.8
-单击事件 => 拨打电话模型 => 数字键.8
-Error:: 单击事件异常:: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up
-Error:: 构建屏幕组件异常:: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to remote server. Original error: Error: socket hang up

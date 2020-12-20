@@ -166,7 +166,6 @@ namespace Core.TestingKit.Web
             {
                 AnalyticalElement(waitTime);
                 new Actions(BrowserDriver).MoveToElement(ElementContainer[count]).Perform();
-                new TouchAction(AndroidDriver).MoveTo(ElementContainer[count], x, y).Perform();
 
                 if (logOutput) LogServe.Info($"拖拽事件 => {ElementStructure.PageName} => {ElementStructure.WidgetName} => [x:{x} | y:{y}]");
             }
